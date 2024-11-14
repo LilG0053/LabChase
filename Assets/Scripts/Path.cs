@@ -31,10 +31,11 @@ namespace UnityEngine
         private string filePath;
         private string outputString;
         private GameObject mainCamera;
-        private float[] moveSpeed = { 0.8759f, 1.8271f, 1.4777f, 1.6173f, 0.9857f, 1.9980f, 0.8831f, 1.5290f, 1.8528f, 0.9548f, 0.6855f, 1.3045f, 1.5628f, 0.5291f, 0.8537f, 1.9775f, 1.2766f, 1.3836f, 1.3689f, 1.9837f};
+        private float[] moveSpeeds = { 0.8759f, 1.8271f, 1.4777f, 1.6173f, 0.9857f, 1.9980f, 0.8831f, 1.5290f, 1.8528f, 0.9548f, 0.6855f, 1.3045f, 1.5628f, 0.5291f, 0.8537f, 1.8775f, 1.2766f, 1.3836f, 1.3689f, 1.9237f};
         private int speedIndex;
         private int pointsIndex;
         private float tDelt;
+        private float timeThresh = 2.0f;
         private float csvTimer;
         private bool toggleState = true;
         private bool isRotating = false;
@@ -75,18 +76,22 @@ namespace UnityEngine
         void Update()
         {
             this.transform.LookAt(new Vector3(mainCamera.transform.position.x, facing.position.y, mainCamera.transform.position.z));
-            if (tDelt >= 2)
+            if (tDelt >= timeThresh)
             {
                 print("speed Changed");
                 tDelt = 0;
-                speedIndex = (speedIndex + 1) % moveSpeed.Length;
+                //Gets a random index from the array
+                speedIndex = Random.Range(0, moveSpeeds.Length);
+                Debug.Log(speedIndex);
+                //puts time threshold to a random plus or minus .5 value
+                timeThresh = 2 + Random.Range(-0.5f, 0.5f);
             }
             if (pointsIndex <= Points.Length - 1)
             {
                 if (isMoving)
                 {
                     tDelt += Time.deltaTime;
-                    transform.position = Vector3.MoveTowards(transform.position, Points[pointsIndex].transform.position, moveSpeed[speedIndex] * Time.deltaTime);
+                    transform.position = Vector3.MoveTowards(transform.position, Points[pointsIndex].transform.position, moveSpeeds[speedIndex] * Time.deltaTime);
                 }
 
 
@@ -113,7 +118,7 @@ namespace UnityEngine
                 outputString = "";
 
                 float distance = Vector3.Distance(mainCamera.transform.position, this.transform.position);
-                Debug.Log(distance);
+                //Debug.Log(distance);
                 outputString += distance.ToString() + ',';
 
                 float distanceFromStart = Vector3.Distance(mainCamera.transform.position, pathStart.transform.position);
