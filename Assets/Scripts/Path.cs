@@ -120,6 +120,7 @@ namespace UnityEngine
                 float distance = Vector3.Distance(mainCamera.transform.position, this.transform.position);
                 //Debug.Log(distance);
                 outputString += distance.ToString() + ',';
+                outputString += System.DateTime.Now.ToString("HH-mm-ss.fff") + ',';
 
                 float distanceFromStart = Vector3.Distance(mainCamera.transform.position, pathStart.transform.position);
                 if (distanceFromStart <= startThreshold)
