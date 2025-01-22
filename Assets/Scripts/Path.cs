@@ -127,13 +127,13 @@ namespace UnityEngine
                 float distanceFromCorner = Vector3.Distance(mainCamera.transform.position, Points[pointsIndex].transform.position);
                 if (distanceFromCorner <= cornerThreshold)
                 {
-                    outputString += "Within corner thresh," + ',';
+                    outputString += "Within corner thresh" + ',';
                 }
 
                 float distanceFromStart = Vector3.Distance(mainCamera.transform.position, pathStart.transform.position);
                 if (distanceFromStart <= startThreshold)
                 {
-                    outputString += "Within start thresh," + ',';
+                    outputString += "Within start thresh" + ',';
                 }
 
                 if (displayObject.flashingToggle == displayObject.FlashingToggle.FlashingOn)
