@@ -27,6 +27,7 @@ namespace UnityEngine
         private float rotationSpeed = 30f;
         [SerializeField]
         private float startThreshold = 0.1f;
+        private float cornerThreshold = 0.1f;
 
         private string filePath;
         private string outputString;
@@ -76,6 +77,7 @@ namespace UnityEngine
         void Update()
         {
             this.transform.LookAt(new Vector3(mainCamera.transform.position.x, facing.position.y, mainCamera.transform.position.z));
+
             if (tDelt >= timeThresh)
             {
                 print("speed Changed");
@@ -86,6 +88,7 @@ namespace UnityEngine
                 //puts time threshold to a random plus or minus .5 value
                 timeThresh = 2 + Random.Range(-0.5f, 0.5f);
             }
+
             if (pointsIndex <= Points.Length - 1)
             {
                 if (isMoving)
@@ -93,7 +96,6 @@ namespace UnityEngine
                     tDelt += Time.deltaTime;
                     transform.position = Vector3.MoveTowards(transform.position, Points[pointsIndex].transform.position, moveSpeeds[speedIndex] * Time.deltaTime);
                 }
-
 
                 if (transform.position == Points[pointsIndex].transform.position)
                 {
@@ -118,16 +120,21 @@ namespace UnityEngine
                 outputString = "";
 
                 float distance = Vector3.Distance(mainCamera.transform.position, this.transform.position);
-                //Debug.Log(distance);
+                
                 outputString += distance.ToString() + ',';
                 outputString += System.DateTime.Now.ToString("HH-mm-ss.fff") + ',';
+
+                float distanceFromCorner = Vector3.Distance(mainCamera.transform.position, Points[pointsIndex].transform.position);
+                if (distanceFromCorner <= cornerThreshold)
+                {
+                    outputString += "Within corner thresh" + ',';
+                }
 
                 float distanceFromStart = Vector3.Distance(mainCamera.transform.position, pathStart.transform.position);
                 if (distanceFromStart <= startThreshold)
                 {
-                    outputString += "Within start thresh " + System.DateTime.Now.ToString("HH-mm-ss") + ',';
+                    outputString += "Within start thresh" + ',';
                 }
-
 
                 if (displayObject.flashingToggle == displayObject.FlashingToggle.FlashingOn)
                 {
@@ -139,12 +146,14 @@ namespace UnityEngine
                     outputString += "Flashing Off" + ',';
                     displayObject.flashingToggle = displayObject.FlashingToggle.NoToggle;
                 }
+
                 if (isMoving != previousMovingState)
                 {
                     //if the moving state has changed then add it to the output string
                     outputString += (isMoving) ? "Start" : "Stop";
                     previousMovingState = isMoving;
                 }
+
                 //only executes this part of the code when outside of yth
                 StringBuilder sb = new StringBuilder();
                 sb.AppendLine(outputString);
