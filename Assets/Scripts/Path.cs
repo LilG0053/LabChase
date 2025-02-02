@@ -124,8 +124,13 @@ namespace UnityEngine
                 outputString += distance.ToString() + ',';
                 outputString += System.DateTime.Now.ToString("HH-mm-ss.fff") + ',';
 
-                float distanceFromCorner = Vector3.Distance(mainCamera.transform.position, Points[pointsIndex].transform.position);
-                if (distanceFromCorner <= cornerThreshold)
+                float distanceFromNearestCorner = float.PositiveInfinity;
+                foreach (Transform point in Points)
+                {
+                    float distanceFromCorner = Vector3.Distance(mainCamera.transform.position, point.transform.position);
+                    distanceFromNearestCorner = Math.Min(distanceFromNearestCorner, distanceFromCorner);
+                }
+                if (distanceFromNearestCorner <= cornerThreshold)
                 {
                     outputString += "Within corner thresh" + ',';
                 }
