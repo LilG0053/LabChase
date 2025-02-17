@@ -58,7 +58,6 @@ namespace UnityEngine
             pointsIndex = 0;
             transform.position = Points[pointsIndex].transform.position;
             outputString = "";
-            isRotating = false;
             toggleState = true;
             speedIndex = 0;
             mainCamera = GameObject.Find("XR Origin (XR Rig)/Camera Offset/Main Camera");
