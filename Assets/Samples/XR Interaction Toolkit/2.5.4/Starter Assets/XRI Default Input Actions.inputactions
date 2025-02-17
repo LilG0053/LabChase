@@ -1777,10 +1777,10 @@
                 {
                     "name": "",
                     "id": "6cea9c64-41db-4092-b10b-467551632817",
-                    "path": "<OculusTouchController>{RightHand}/secondaryButton",
+                    "path": "<XRController>{RightHand}/{SecondaryButton}",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Generic XR Controller",
                     "action": "Rotate Path",
                     "isComposite": false,
                     "isPartOfComposite": false
