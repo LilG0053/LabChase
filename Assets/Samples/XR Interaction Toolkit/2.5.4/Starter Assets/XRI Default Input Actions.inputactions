@@ -1589,9 +1589,9 @@
                 },
                 {
                     "name": "Rotate Path",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "eb9c0604-0d50-412f-a260-3a9ae57191bb",
-                    "expectedControlType": "",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -1777,7 +1777,7 @@
                 {
                     "name": "",
                     "id": "6cea9c64-41db-4092-b10b-467551632817",
-                    "path": "<XRController>{RightHand}/{SecondaryButton}",
+                    "path": "<XRController>{RightHand}/{Primary2DAxis}",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Generic XR Controller",
@@ -1915,7 +1915,7 @@
                     "path": "<XRController>{RightHand}/{Primary2DAxis}",
                     "interactions": "",
                     "processors": "StickDeadzone",
-                    "groups": "Continuous Move",
+                    "groups": "Continuous Move;Generic XR Controller",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false

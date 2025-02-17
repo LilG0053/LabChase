@@ -40,7 +40,7 @@ namespace UnityEngine
         private float timeThresh = 2.0f;
         private float csvTimer;
         private bool toggleState = true;
-        private bool isRotating = false;
+        private Vector2 rotateInput;
         private static bool isMoving = true;
         private Transform facing;
         private static bool previousMovingState = true;
@@ -70,7 +70,8 @@ namespace UnityEngine
                 displayObject = GameObject.Find("XR Origin (XR Rig)/Canvas/Holder").GetComponent<displayObject>();
             }
             toggleReference.action.started += TogglePathMesh;
-            rotateReference.action.started += RotatePath;
+            rotateReference.action.Enable();
+            rotateReference.action.performed += RotatePath;
         }
 
         // Update is called once per frame
@@ -108,11 +109,9 @@ namespace UnityEngine
                 }
             }
 
-            if (isRotating)
-            {
-                float rotationAmount = rotationSpeed * Time.deltaTime;
-                pathParent.transform.Rotate(Vector3.up, rotationAmount);
-            }
+            // rotate path based on joystick vector
+            rotateInput = rotateReference.action.ReadValue<Vector2>();
+            pathParent.transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime * rotateInput.x);
 
             csvTimer += Time.deltaTime;
             if (csvTimer >= 0.05f) // 1/20th of a second
@@ -203,8 +202,7 @@ namespace UnityEngine
         }
         private void RotatePath(InputAction.CallbackContext context)
         {
-            isRotating = !isRotating;
-
+            rotateInput = context.ReadValue<Vector2>();
         }
 
         public static void toggleTrackerMovement() // New method to toggle movement

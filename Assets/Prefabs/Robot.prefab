@@ -137,6 +137,6 @@ MonoBehaviour:
   pathParent: {fileID: 0}
   pathStart: {fileID: 0}
   displayObject: {fileID: 0}
-  moveSpeed: 1
   rotationSpeed: 30
   startThreshold: 0.1
+  cornerThreshold: 2.5
