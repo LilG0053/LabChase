@@ -27,7 +27,8 @@ namespace UnityEngine
         private float rotationSpeed = 30f;
         [SerializeField]
         private float startThreshold = 0.1f;
-        private float cornerThreshold = 2.00f;
+        [SerializeField]
+        private float cornerThreshold = 2.50f;
 
         private string filePath;
         private string outputString;
@@ -130,16 +131,10 @@ namespace UnityEngine
                     float distanceFromCorner = Vector3.Distance(mainCamera.transform.position, point.transform.position);
                     distanceFromNearestCorner = Math.Min(distanceFromNearestCorner, distanceFromCorner);
                 }
-                if (distanceFromNearestCorner <= cornerThreshold)
-                {
-                    outputString += "Within corner thresh" + ',';
-                }
+
+                RecordData(distanceFromNearestCorner <= cornerThreshold, "Within corner thresh");
 
                 float distanceFromStart = Vector3.Distance(mainCamera.transform.position, pathStart.transform.position);
-                if (distanceFromStart <= startThreshold)
-                {
-                    outputString += "Within start thresh" + ',';
-                }
 
                 if (displayObject.flashingToggle == displayObject.FlashingToggle.FlashingOn)
                 {
@@ -150,6 +145,9 @@ namespace UnityEngine
                 {
                     outputString += "Flashing Off" + ',';
                     displayObject.flashingToggle = displayObject.FlashingToggle.NoToggle;
+                } else
+                {
+                    outputString += ',';
                 }
 
                 if (isMoving != previousMovingState)
@@ -157,6 +155,9 @@ namespace UnityEngine
                     //if the moving state has changed then add it to the output string
                     outputString += (isMoving) ? "Start" : "Stop";
                     previousMovingState = isMoving;
+                } else
+                {
+                    outputString += ',';
                 }
 
                 //only executes this part of the code when outside of yth
@@ -191,6 +192,16 @@ namespace UnityEngine
             }
         }
 
+        private void RecordData(bool conditional, string str)
+        {
+            if (conditional)
+            {
+                outputString += str + ',';
+            } else
+            {
+                outputString += ',';
+            }
+        }
         private void RotatePath(InputAction.CallbackContext context)
         {
             isRotating = !isRotating;
