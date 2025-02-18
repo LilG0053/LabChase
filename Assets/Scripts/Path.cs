@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
-using UnityEngine.XR;
+using UnityEngine;
 using UnityEngine.InputSystem;
 using System.IO;
 using System.Runtime.CompilerServices;
@@ -22,14 +22,14 @@ namespace UnityEngine
 
         public GameObject pathStart;
         public displayObject displayObject;
-        public XRNode headNode = XRNode.Head;
+
         [SerializeField]
         private float rotationSpeed = 30f;
         [SerializeField]
         private float startThreshold = 0.1f;
         [SerializeField]
         private float cornerThreshold = 2.50f;
-        private List<XRNodeState> nodeStates = new List<XRNodeState>();
+
         private string filePath;
         private string outputString;
         private GameObject mainCamera;
@@ -42,8 +42,6 @@ namespace UnityEngine
         private bool toggleState = true;
         private Vector2 rotateInput;
         private static bool isMoving = true;
-        private XRNodeState headState;
-        private Vector3 velocityVec;
         private Transform facing;
         private static bool previousMovingState = true;
         void Start()
@@ -55,7 +53,6 @@ namespace UnityEngine
             previousMovingState = isMoving;
             tDelt = 0;
             csvTimer = 0;
-            headState = new XRNodeState();
             filePath = System.IO.Path.Combine(Application.persistentDataPath, System.DateTime.Now.ToString("HH-mm-ss") + ".csv");
             Debug.Log("Filepath is: " + filePath);
             pointsIndex = 0;
@@ -63,7 +60,6 @@ namespace UnityEngine
             outputString = "";
             toggleState = true;
             speedIndex = 0;
-            velocityVec = Vector3.zero;
             mainCamera = GameObject.Find("XR Origin (XR Rig)/Camera Offset/Main Camera");
             if (!mainCamera)
             {
@@ -161,8 +157,7 @@ namespace UnityEngine
                 {
                     outputString += ',';
                 }
-                //Gets the velocity data for the head
-                HeadVelocityData();
+
                 //only executes this part of the code when outside of yth
                 StringBuilder sb = new StringBuilder();
                 sb.AppendLine(outputString);
@@ -194,25 +189,7 @@ namespace UnityEngine
                 toggleState = !toggleState;
             }
         }
-        private void HeadVelocityData()
-        {
-            //get the head xrnode
-            foreach (var node in nodeStates)
-            {
-                if (node.nodeType == XRNode.Head)
-                {
-                    headState = node;
-                    break;
-                }
-            }
-            Debug.Log(headState.ToString());
-            //record the velocities
-            headState.TryGetVelocity(out velocityVec);
-            RecordData(true, velocityVec.x.ToString());
-            RecordData(true, velocityVec.y.ToString());
-            RecordData(true, velocityVec.z.ToString());
 
-        }
         private void RecordData(bool conditional, string str)
         {
             if (conditional)
