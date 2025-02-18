@@ -53,14 +53,12 @@ namespace UnityEngine
             previousMovingState = isMoving;
             tDelt = 0;
             csvTimer = 0;
-            filePath = System.IO.Path.Combine(Application.persistentDataPath, System.DateTime.Now.ToString("HH-mm-ss") + ".csv");
-            Debug.Log("Filepath is: " + filePath);
             pointsIndex = 0;
             transform.position = Points[pointsIndex].transform.position;
-            outputString = "";
             toggleState = true;
             speedIndex = 0;
             mainCamera = GameObject.Find("XR Origin (XR Rig)/Camera Offset/Main Camera");
+            InitializeFileWriting();
             if (!mainCamera)
             {
                 Debug.LogError("No camera found");
@@ -116,12 +114,11 @@ namespace UnityEngine
             csvTimer += Time.deltaTime;
             if (csvTimer >= 0.05f) // 1/20th of a second
             {
-                outputString = "";
 
                 float distance = Vector3.Distance(mainCamera.transform.position, this.transform.position);
-                
-                outputString += distance.ToString() + ',';
+
                 outputString += System.DateTime.Now.ToString("HH-mm-ss.fff") + ',';
+                outputString += distance.ToString() + ',';
 
                 float distanceFromNearestCorner = float.PositiveInfinity;
                 foreach (Transform point in Points)
@@ -158,6 +155,10 @@ namespace UnityEngine
                     outputString += ',';
                 }
 
+                //record positional data
+                RecordData(true, mainCamera.transform.position.x.ToString());
+                RecordData(true, mainCamera.transform.position.y.ToString());
+                RecordData(true, mainCamera.transform.position.z.ToString());
                 //only executes this part of the code when outside of yth
                 StringBuilder sb = new StringBuilder();
                 sb.AppendLine(outputString);
@@ -168,6 +169,7 @@ namespace UnityEngine
                     File.AppendAllText(filePath, sb.ToString());
 
                 csvTimer = 0; // Reset timer after writing
+                outputString = "";
             }
         }
         private void OnDestroy()
@@ -176,6 +178,13 @@ namespace UnityEngine
             rotateReference.action.performed -= RotatePath;
         }
 
+        private void InitializeFileWriting()
+        {
+            filePath = System.IO.Path.Combine(Application.persistentDataPath, System.DateTime.Now.ToString("HH-mm-ss") + ".csv");
+            Debug.Log("Filepath is: " + filePath);
+            outputString = "";
+            outputString += "Time, Distance, Corner, Flashing, Start/Stop, Position.x, Position.y, Position.z,\n";
+        }
         private void TogglePathMesh(InputAction.CallbackContext context)
         {
             if (toggleState)
