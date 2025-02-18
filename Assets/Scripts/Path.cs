@@ -26,8 +26,6 @@ namespace UnityEngine
         [SerializeField]
         private float rotationSpeed = 30f;
         [SerializeField]
-        private float startThreshold = 0.1f;
-        [SerializeField]
         private float cornerThreshold = 2.50f;
 
         private string filePath;
