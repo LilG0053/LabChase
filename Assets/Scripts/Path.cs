@@ -22,15 +22,14 @@ namespace UnityEngine
 
         public GameObject pathStart;
         public displayObject displayObject;
-
+        private GameObject mainCamera;
         [SerializeField]
         private float rotationSpeed = 30f;
         [SerializeField]
         private float cornerThreshold = 2.50f;
-
         private string filePath;
         private string outputString;
-        private GameObject mainCamera;
+        
         private float[] moveSpeeds = { 0.8759f, 1.8271f, 1.4777f, 1.6173f, 0.9857f, 1.9980f, 0.8831f, 1.5290f, 1.8528f, 0.9548f, 0.6855f, 1.3045f, 1.5628f, 0.5291f, 0.8537f, 1.8775f, 1.2766f, 1.3836f, 1.3689f, 1.9237f};
         private int speedIndex;
         private int pointsIndex;
@@ -215,6 +214,11 @@ namespace UnityEngine
         public static void toggleTrackerMovement() // New method to toggle movement
         {
             isMoving = !isMoving;
+        }
+
+        public GameObject GetMainCamera()
+        {
+            return mainCamera;
         }
     }
 }
