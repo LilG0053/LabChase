@@ -21,7 +21,7 @@ namespace UnityEngine
         public GameObject pathParent;
 
         public GameObject pathStart;
-        public displayObject displayObject;
+        public DisplayObjectManager DisplayObjectManager;
         private GameObject mainCamera;
         [SerializeField]
         private float rotationSpeed = 30f;
@@ -60,9 +60,9 @@ namespace UnityEngine
             {
                 Debug.LogError("No camera found");
             }
-            if (!displayObject)
+            if (!DisplayObjectManager)
             {
-                displayObject = GameObject.Find("XR Origin (XR Rig)/Canvas/Holder").GetComponent<displayObject>();
+                DisplayObjectManager = GameObject.Find("XR Origin (XR Rig)/Canvas/Holder").GetComponent<DisplayObjectManager>();
             }
             toggleReference.action.started += TogglePathMesh;
             rotateReference.action.Enable();
@@ -128,15 +128,15 @@ namespace UnityEngine
 
                 float distanceFromStart = Vector3.Distance(mainCamera.transform.position, pathStart.transform.position);
 
-                if (displayObject.flashingToggle == displayObject.FlashingToggle.FlashingOn)
+                if (DisplayObjectManager.flashingToggle == DisplayObjectManager.FlashingToggle.FlashingOn)
                 {
                     outputString += "Flashing On" + ',';
-                    displayObject.flashingToggle = displayObject.FlashingToggle.NoToggle;
+                    DisplayObjectManager.flashingToggle = DisplayObjectManager.FlashingToggle.NoToggle;
                 }
-                else if (displayObject.flashingToggle == displayObject.FlashingToggle.FlashingOff)
+                else if (DisplayObjectManager.flashingToggle == DisplayObjectManager.FlashingToggle.FlashingOff)
                 {
                     outputString += "Flashing Off" + ',';
-                    displayObject.flashingToggle = displayObject.FlashingToggle.NoToggle;
+                    DisplayObjectManager.flashingToggle = DisplayObjectManager.FlashingToggle.NoToggle;
                 } else
                 {
                     outputString += ',';

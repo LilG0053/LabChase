@@ -2,12 +2,17 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
 
-public class displayObject : MonoBehaviour
+public class DisplayObjectManager : MonoBehaviour
 {
     [Header("Images")]
+    //For generic images
     [SerializeField] private GameObject[] images;
-    [SerializeField] private GameObject whiteImageL;
-    [SerializeField] private GameObject whiteImageR;
+    //For specific images
+    [SerializeField] private GameObject WhiteScreenBoth;
+    [SerializeField] private GameObject WhiteScreenR;
+    [SerializeField] private GameObject BSODBoth;
+    [SerializeField] private GameObject BSODR;
+
     [SerializeField] private GameObject blackScreen;
     [SerializeField] private GameObject CenterLine;
     [SerializeField] private GameObject GreenLine;
@@ -18,12 +23,11 @@ public class displayObject : MonoBehaviour
     [SerializeField] private int movementMagnitude = 1;
     [Header("Choose a magnitude of scale")]
     [SerializeField] private float scaleMagnitude = 1f;
-    [SerializeField] private float flashSpeed = 0.01f;
+    [SerializeField] private float FlashFrequency = 0.01f;
 
     private Vector3 changeVector;
     private int imageIndex;
     private bool isFlashing;
-    private bool flashInstanceTracker;
     private bool isOneEye;
     private bool isFlashOneEye;
 
@@ -51,7 +55,7 @@ public class displayObject : MonoBehaviour
             images[i].SetActive(false);
         }
         images[0].SetActive(true);
-        whiteImageL.SetActive(false);
+        WhiteScreenBoth.SetActive(false);
         blackScreen.SetActive(false);
     }
 
@@ -115,14 +119,14 @@ public class displayObject : MonoBehaviour
 
             if (!isFlashOneEye)
             {
-                whiteImageL.SetActive(true);
-                whiteImageR.SetActive(false);
+                WhiteScreenBoth.SetActive(true);
+                WhiteScreenR.SetActive(false);
 
             }
             else
             {
-                whiteImageL.SetActive(true);
-                whiteImageR.SetActive(true);
+                WhiteScreenBoth.SetActive(true);
+                WhiteScreenR.SetActive(true);
             }
             isFlashing = true;
             flashingToggle = FlashingToggle.FlashingOn;
@@ -131,8 +135,8 @@ public class displayObject : MonoBehaviour
         }
         else
         {
-            whiteImageL.SetActive(false);
-            whiteImageR.SetActive(false);
+            WhiteScreenBoth.SetActive(false);
+            WhiteScreenR.SetActive(false);
             isFlashing = false;
             flashingToggle = FlashingToggle.FlashingOff;
             // StopCoroutine(flash());
@@ -146,19 +150,19 @@ public class displayObject : MonoBehaviour
         //toggles white every x seconds
         while (isFlashing)
         {
-            yield return new WaitForSeconds(flashSpeed);
+            yield return new WaitForSeconds(FlashFrequency);
             
             if (!isFlashOneEye)
             {
-                whiteImageL.SetActive(!whiteImageL.activeSelf);
+                WhiteScreenBoth.SetActive(!WhiteScreenBoth.activeSelf);
             } else
             {
-                whiteImageR.SetActive(!whiteImageR.activeSelf);
+                WhiteScreenR.SetActive(!WhiteScreenR.activeSelf);
             }
         }
         // on shutdown ensures that image returns to blank
-        whiteImageL.SetActive(false);
-        whiteImageR.SetActive(false);
+        WhiteScreenBoth.SetActive(false);
+        WhiteScreenR.SetActive(false);
     }
 
     // Methods to cycle through images
@@ -193,7 +197,7 @@ public class displayObject : MonoBehaviour
         isFlashOneEye = !isFlashOneEye;
         if (isFlashOneEye)
         {
-            whiteImageL.SetActive(false);
+            WhiteScreenBoth.SetActive(false);
         }
     }
 }

@@ -9,7 +9,7 @@ public class HololensScript : MonoBehaviourPunCallbacks, IOnEventCallback
 {
 
     public GameObject imageObject;
-    public displayObject displayObject;
+    public DisplayObjectManager DisplayObjectManager;
 
     // Start is called before the first frame update
     void Start()
@@ -42,43 +42,43 @@ public class HololensScript : MonoBehaviourPunCallbacks, IOnEventCallback
                 Path.toggleTrackerMovement();
                 break;
             case Utility.MoveLeftEventCode:
-                displayObject.moveLeft();
+                DisplayObjectManager.moveLeft();
                 break;
             case Utility.MoveRightEventCode:
-                displayObject.moveRight();
+                DisplayObjectManager.moveRight();
                 break;
             case Utility.MoveUpEventCode:
-                displayObject.moveUp();
+                DisplayObjectManager.moveUp();
                 break;
             case Utility.MoveDownEventCode:
-                displayObject.moveDown();
+                DisplayObjectManager.moveDown();
                 break;
             case Utility.ScaleUpEventCode:
-                displayObject.scaleUp();
+                DisplayObjectManager.scaleUp();
                 break;
             case Utility.ScaleDownEventCode:
-                displayObject.scaleDown();
+                DisplayObjectManager.scaleDown();
                 break;
             case Utility.NextEventCode:
-                displayObject.nextImage();
+                DisplayObjectManager.nextImage();
                 break;
             case Utility.PreviousEventCode:
-                displayObject.previousImage();
+                DisplayObjectManager.previousImage();
                 break;
             case Utility.ToggleFlashingEventCode:
-                displayObject.toggleFlashing();
+                DisplayObjectManager.toggleFlashing();
                 break;
             case Utility.MoveLeftJEventCode:
-                displayObject.moveLeftJ();
+                DisplayObjectManager.moveLeftJ();
                 break;
             case Utility.MoveRightJEventCode:
-                displayObject.moveRightJ();
+                DisplayObjectManager.moveRightJ();
                 break;
             case Utility.ToggleOneEyeEventCode:
-                displayObject.toggleOneEye();
+                DisplayObjectManager.toggleOneEye();
                 break;
             case Utility.ToggleOneEyeFlashEventCode:
-                displayObject.toggleOneEyeFlash();
+                DisplayObjectManager.toggleOneEyeFlash();
                 break;
         }
     }
