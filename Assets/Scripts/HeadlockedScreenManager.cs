@@ -8,13 +8,13 @@ public class HeadlockedScreenManager : MonoBehaviour
     [SerializeField] private GameObject WhiteScreen;
     public float FlashFrequency = 0.5f;
     
-    private enum ScreenType
+    public enum ScreenType
     {
         BlueScreenOfDeath,
         WhiteScreen
     }
 
-    private enum FOV {
+    public enum FOV {
         FOV80,
         FOV70,
         FOV60,
