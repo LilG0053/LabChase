@@ -63,12 +63,9 @@ public class HeadlockedScreenManager : MonoBehaviour
             currentScreen.transform.localScale = new Vector3(0.02f, 0.02f, 0.02f);
         }
 
-        if (isFlashing)
+        if (isFlashing && flashCoroutine == null)
         {
-            if (flashCoroutine == null)
-            {
-                flashCoroutine = StartCoroutine(FlashRoutine());
-            }
+            flashCoroutine = StartCoroutine(FlashRoutine());
         }   
         
         if (isMonocular)
@@ -84,9 +81,9 @@ public class HeadlockedScreenManager : MonoBehaviour
 
     public void HideScreen()
     {
+        StopFlashing();
         BlueScreenOfDeath.SetActive(false);
         WhiteScreen.SetActive(false);
-        StopFlashing();
     }
 
     private IEnumerator FlashRoutine()
