@@ -31,7 +31,7 @@ public class HeadlockedScreenManager : MonoBehaviour
         ShowScreen(ScreenType.BlueScreenOfDeath, FOV.FOV30, true);
     }
 
-    void ShowScreen(ScreenType screenType, FOV fov, bool isFlashing = false, bool isMonocular = false)
+    public void ShowScreen(ScreenType screenType, FOV fov, bool isFlashing = false, bool isMonocular = false)
     {
         if (screenType == ScreenType.BlueScreenOfDeath)
         {
@@ -73,7 +73,7 @@ public class HeadlockedScreenManager : MonoBehaviour
         
         if (isMonocular)
         {
-
+            // change shader/material
         }
         else
         {
@@ -82,7 +82,7 @@ public class HeadlockedScreenManager : MonoBehaviour
         
     }
 
-    void HideScreen()
+    public void HideScreen()
     {
         BlueScreenOfDeath.SetActive(false);
         WhiteScreen.SetActive(false);
