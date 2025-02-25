@@ -1,0 +1,110 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class HeadlockedScreenManager : MonoBehaviour
+{
+    [SerializeField] private GameObject BlueScreenOfDeath;
+    [SerializeField] private GameObject WhiteScreen;
+    public float FlashFrequency = 0.5f;
+    
+    private enum ScreenType
+    {
+        BlueScreenOfDeath,
+        WhiteScreen
+    }
+
+    private enum FOV {
+        FOV80,
+        FOV70,
+        FOV60,
+        FOV30
+    }
+    
+    private GameObject currentScreen;
+    private Coroutine flashCoroutine;
+
+    private void Start()
+    {
+        // ShowScreen(ScreenType.BlueScreenOfDeath, FOV.FOV80, true);
+        // HideScreen();
+        ShowScreen(ScreenType.BlueScreenOfDeath, FOV.FOV30, true);
+    }
+
+    void ShowScreen(ScreenType screenType, FOV fov, bool isFlashing = false, bool isMonocular = false)
+    {
+        if (screenType == ScreenType.BlueScreenOfDeath)
+        {
+            currentScreen = BlueScreenOfDeath;
+            BlueScreenOfDeath.SetActive(true);
+            WhiteScreen.SetActive(false);
+        }
+        else if (screenType == ScreenType.WhiteScreen)
+        {
+            currentScreen = WhiteScreen;
+            BlueScreenOfDeath.SetActive(false);
+            WhiteScreen.SetActive(true);
+        }
+
+        if (fov == FOV.FOV80)
+        {
+            currentScreen.transform.localScale = new Vector3(0.05f, 0.05f, 0.05f);
+        }
+        else if (fov == FOV.FOV70)
+        {
+            currentScreen.transform.localScale = new Vector3(0.04f, 0.04f, 0.04f);
+        }
+        else if (fov == FOV.FOV60)
+        {
+            currentScreen.transform.localScale = new Vector3(0.03f, 0.03f, 0.03f);
+        }
+        else if (fov == FOV.FOV30)
+        {
+            currentScreen.transform.localScale = new Vector3(0.02f, 0.02f, 0.02f);
+        }
+
+        if (isFlashing)
+        {
+            if (flashCoroutine == null)
+            {
+                flashCoroutine = StartCoroutine(FlashRoutine());
+            }
+        }   
+        
+        if (isMonocular)
+        {
+
+        }
+        else
+        {
+
+        }
+        
+    }
+
+    void HideScreen()
+    {
+        BlueScreenOfDeath.SetActive(false);
+        WhiteScreen.SetActive(false);
+        StopFlashing();
+    }
+
+    private IEnumerator FlashRoutine()
+    {
+        while (true)
+        {
+            currentScreen.SetActive(!currentScreen.activeSelf == true);
+            yield return new WaitForSeconds(FlashFrequency);
+        }
+    }
+
+    public void StopFlashing()
+    {
+        if (flashCoroutine != null)
+        {
+            StopCoroutine(flashCoroutine);
+            flashCoroutine = null;
+            currentScreen.SetActive(true);
+        }
+    }
+}
