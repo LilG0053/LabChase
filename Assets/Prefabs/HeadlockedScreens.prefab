@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BlueScreenOfDeath: {fileID: 1197185553680400562}
   WhiteScreen: {fileID: 5072965017612218722}
+  FlashFrequency: 0.5
 --- !u!1 &1197185553680400562
 GameObject:
   m_ObjectHideFlags: 0
@@ -66,7 +67,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4771100581375661406
 Transform:
   m_ObjectHideFlags: 0
@@ -110,7 +111,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 707acab20ec6e4e42be96e64651c642b, type: 2}
+  - {fileID: 2100000, guid: a7ad337b1302d444b9258675f5651669, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -172,7 +173,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2864289713314561591
 Transform:
   m_ObjectHideFlags: 0
@@ -216,7 +217,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 707acab20ec6e4e42be96e64651c642b, type: 2}
+  - {fileID: 2100000, guid: 53add8027f7bb43f3bec2cc8b9408633, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
