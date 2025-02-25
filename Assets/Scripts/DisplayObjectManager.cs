@@ -8,10 +8,10 @@ public class DisplayObjectManager : MonoBehaviour
     //For generic images
     [SerializeField] private GameObject[] images;
     //For specific images
-    [SerializeField] private GameObject WhiteScreenBoth;
-    [SerializeField] private GameObject WhiteScreenR;
-    [SerializeField] private GameObject BSODBoth;
-    [SerializeField] private GameObject BSODR;
+    [SerializeField] private GameObject WhiteScreen;
+    [SerializeField] private GameObject WhiteScreenRight;
+    [SerializeField] private GameObject BlueScreenOfDeath;
+    [SerializeField] private GameObject BlueScreenOfDeathRight;
 
     [SerializeField] private GameObject blackScreen;
     [SerializeField] private GameObject CenterLine;
@@ -38,9 +38,24 @@ public class DisplayObjectManager : MonoBehaviour
         FlashingOff,
         FlashingOn,
     }
- 
+
+    public enum FOV
+    {
+        FOV80,
+        FOV70,
+        FOV60,
+        FOV30
+    }
+
+    public enum ScreenType
+    {
+        BlueScreenOfDeath,
+        WhiteScreen
+    }
+
     public FlashingToggle flashingToggle = FlashingToggle.NoToggle;
-    
+    private GameObject currentScreen;
+    private Coroutine flashCoroutine;
 
     void Start()
     {
@@ -55,7 +70,7 @@ public class DisplayObjectManager : MonoBehaviour
             images[i].SetActive(false);
         }
         images[0].SetActive(true);
-        WhiteScreenBoth.SetActive(false);
+        WhiteScreen.SetActive(false);
         blackScreen.SetActive(false);
     }
 
@@ -112,57 +127,103 @@ public class DisplayObjectManager : MonoBehaviour
     }
 
     // Method to toggle flashing
-    public void toggleFlashing()
+    public void toggleFlashing(ScreenType screenType, FOV fov, bool isFlashing = false, bool isMonocular = false)
     {
-        if (!isFlashing)
+        //First deactivate everything
+        BlueScreenOfDeathRight.SetActive(false);
+        BlueScreenOfDeath.SetActive(false);
+        WhiteScreen.SetActive(false);
+        WhiteScreenRight.SetActive(false);
+
+        //Then activate what is needed
+        if (screenType == ScreenType.BlueScreenOfDeath)
         {
-
-            if (!isFlashOneEye)
+            //BSOD logic, checks for monocularity
+            if (isMonocular)
             {
-                WhiteScreenBoth.SetActive(true);
-                WhiteScreenR.SetActive(false);
-
+                currentScreen = BlueScreenOfDeathRight;
+                BlueScreenOfDeathRight.SetActive(true);
+            } else
+            {
+                currentScreen = BlueScreenOfDeath;
+                BlueScreenOfDeath.SetActive(true);
+            }
+            
+        }
+        else if (screenType == ScreenType.WhiteScreen)
+        {
+            //BSOD logic, checks for monocularity
+            if (isMonocular)
+            {
+                currentScreen = WhiteScreenRight;
+                WhiteScreenRight.SetActive(true);
             }
             else
             {
-                WhiteScreenBoth.SetActive(true);
-                WhiteScreenR.SetActive(true);
+                currentScreen = WhiteScreen;
+                WhiteScreen.SetActive(true);
+            }  
+            
+        }
+
+        if (fov == FOV.FOV80)
+        {
+            currentScreen.transform.localScale = new Vector3(363f, 363f, 363f);
+        }
+        else if (fov == FOV.FOV70)
+        {
+            currentScreen.transform.localScale = new Vector3(330f, 330f, 330f);
+        }
+        else if (fov == FOV.FOV60)
+        {
+            currentScreen.transform.localScale = new Vector3(300f, 300f, 300f);
+        }
+        else if (fov == FOV.FOV30)
+        {
+            currentScreen.transform.localScale = new Vector3(150f, 150f, 150f);
+        }
+
+        if (isFlashing)
+        {
+            if (flashCoroutine == null)
+            {
+                flashCoroutine = StartCoroutine(FlashRoutine());
             }
-            isFlashing = true;
-            flashingToggle = FlashingToggle.FlashingOn;
-            // StartCoroutine(flash());
+        }
+
+        if (isMonocular)
+        {
 
         }
         else
         {
-            WhiteScreenBoth.SetActive(false);
-            WhiteScreenR.SetActive(false);
-            isFlashing = false;
-            flashingToggle = FlashingToggle.FlashingOff;
-            // StopCoroutine(flash());
 
         }
     }
 
     // Flashing effect
-    private IEnumerator flash()
+    private IEnumerator FlashRoutine()
     {
         //toggles white every x seconds
         while (isFlashing)
         {
+            currentScreen.SetActive(!currentScreen.activeSelf == true);
             yield return new WaitForSeconds(FlashFrequency);
-            
-            if (!isFlashOneEye)
-            {
-                WhiteScreenBoth.SetActive(!WhiteScreenBoth.activeSelf);
-            } else
-            {
-                WhiteScreenR.SetActive(!WhiteScreenR.activeSelf);
-            }
         }
         // on shutdown ensures that image returns to blank
-        WhiteScreenBoth.SetActive(false);
-        WhiteScreenR.SetActive(false);
+        WhiteScreen.SetActive(false);
+        WhiteScreenRight.SetActive(false);
+    }
+
+    public void StopFlashing()
+    {
+        if (flashCoroutine != null)
+        {
+            isFlashing = false;
+            StopCoroutine(flashCoroutine);
+            flashCoroutine = null;
+            currentScreen.SetActive(true);
+        }
     }
 
     // Methods to cycle through images
@@ -197,7 +258,7 @@ public class DisplayObjectManager : MonoBehaviour
         isFlashOneEye = !isFlashOneEye;
         if (isFlashOneEye)
         {
-            WhiteScreenBoth.SetActive(false);
+            WhiteScreen.SetActive(false);
         }
     }
 }
