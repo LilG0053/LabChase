@@ -1,6 +1,7 @@
 using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEditor.Build;
 using UnityEngine;
 
 public class NetworkController : MonoBehaviourPunCallbacks, IOnEventCallback
@@ -66,7 +67,6 @@ public class NetworkController : MonoBehaviourPunCallbacks, IOnEventCallback
             case Utility.ScaleDownEventCode:
                 DisplayObjectManager.scaleDown();
                 break;
-                break;
             case Utility.ToggleFlashingEventCode:
                 isFlashing = true;
                 break;
@@ -108,12 +108,12 @@ public class NetworkController : MonoBehaviourPunCallbacks, IOnEventCallback
         }
     }
 
-    private void OnEnable()
+    public override void OnEnable()
     {
         PhotonNetwork.AddCallbackTarget(this);
     }
 
-    private void OnDisable()
+    public override void OnDisable()
     {
         PhotonNetwork.RemoveCallbackTarget(this);
     }
