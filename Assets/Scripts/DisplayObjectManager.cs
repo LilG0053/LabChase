@@ -56,7 +56,7 @@ public class DisplayObjectManager : MonoBehaviour
     void Start()
     {
         HideScreen();
-        showScreen(ScreenType.BlueScreenOfDeath, FOV.FOV30, true, false);
+        showScreen(ScreenType.WhiteScreen, FOV.FOV30, false);
     }
 
     void Update()
@@ -123,7 +123,6 @@ public class DisplayObjectManager : MonoBehaviour
         //Then activate what is needed
         if (screenType == ScreenType.BlueScreenOfDeath)
         {
-            //BSOD logic, checks for monocularity
             if (isMonocular)
             {
                 currentScreen = BlueScreenOfDeathRight;
@@ -137,7 +136,6 @@ public class DisplayObjectManager : MonoBehaviour
         }
         else if (screenType == ScreenType.WhiteScreen)
         {
-            //BSOD logic, checks for monocularity
             if (isMonocular)
             {
                 currentScreen = WhiteScreenRight;
@@ -147,10 +145,6 @@ public class DisplayObjectManager : MonoBehaviour
             {
                 currentScreen = WhiteScreen;
                 WhiteScreen.SetActive(true);
-            }
-            if (isFlashing && flashCoroutine == null)
-            {
-                flashCoroutine = StartCoroutine(FlashRoutine());
             }
         }
 
@@ -170,19 +164,26 @@ public class DisplayObjectManager : MonoBehaviour
         {
             currentScreen.transform.localScale = new Vector3(150f, 150f, 150f);
         }
+
+        if (isFlashing && flashCoroutine == null)
+        {
+            flashCoroutine = StartCoroutine(FlashRoutine());
+        }
     }
 
     public void HideScreen()
     {
         StopFlashing();
+        // deactivate everything
+        BlueScreenOfDeathRight.SetActive(false);
         BlueScreenOfDeath.SetActive(false);
         WhiteScreen.SetActive(false);
+        WhiteScreenRight.SetActive(false);
     }
 
     // Flashing effect
     private IEnumerator FlashRoutine()
     {
-        //toggles white every x seconds
         while (true)
         {
             currentScreen.SetActive(!currentScreen.activeSelf == true);
