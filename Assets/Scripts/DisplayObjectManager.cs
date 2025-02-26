@@ -26,10 +26,6 @@ public class DisplayObjectManager : MonoBehaviour
     [SerializeField] private float FlashFrequency = 0.01f;
 
     private Vector3 changeVector;
-    private int imageIndex;
-    private bool isFlashing;
-    private bool isOneEye;
-    private bool isFlashOneEye;
 
     // Enum for flashing toggle states
     public enum FlashingToggle
@@ -59,19 +55,8 @@ public class DisplayObjectManager : MonoBehaviour
 
     void Start()
     {
-        imageIndex = 0;
-        isFlashing = false;
-        isOneEye = false;
-        isFlashOneEye = false;
-
-        // Initialize images
-        for (int i = 1; i < images.Length; i++)
-        {
-            images[i].SetActive(false);
-        }
-        images[0].SetActive(true);
-        WhiteScreen.SetActive(false);
-        blackScreen.SetActive(false);
+        HideScreen();
+        showScreen(ScreenType.BlueScreenOfDeath, FOV.FOV30, true, false);
     }
 
     void Update()
@@ -127,7 +112,7 @@ public class DisplayObjectManager : MonoBehaviour
     }
 
     // Method to toggle flashing
-    public void toggleFlashing(ScreenType screenType, FOV fov, bool isFlashing = false, bool isMonocular = false)
+    public void showScreen(ScreenType screenType, FOV fov, bool isFlashing = false, bool isMonocular = false)
     {
         //First deactivate everything
         BlueScreenOfDeathRight.SetActive(false);
@@ -162,8 +147,11 @@ public class DisplayObjectManager : MonoBehaviour
             {
                 currentScreen = WhiteScreen;
                 WhiteScreen.SetActive(true);
-            }  
-            
+            }
+            if (isFlashing && flashCoroutine == null)
+            {
+                flashCoroutine = StartCoroutine(FlashRoutine());
+            }
         }
 
         if (fov == FOV.FOV80)
@@ -182,83 +170,34 @@ public class DisplayObjectManager : MonoBehaviour
         {
             currentScreen.transform.localScale = new Vector3(150f, 150f, 150f);
         }
+    }
 
-        if (isFlashing)
-        {
-            if (flashCoroutine == null)
-            {
-                flashCoroutine = StartCoroutine(FlashRoutine());
-            }
-        }
-
-        if (isMonocular)
-        {
-
-        }
-        else
-        {
-
-        }
+    public void HideScreen()
+    {
+        StopFlashing();
+        BlueScreenOfDeath.SetActive(false);
+        WhiteScreen.SetActive(false);
     }
 
     // Flashing effect
     private IEnumerator FlashRoutine()
     {
         //toggles white every x seconds
-        while (isFlashing)
+        while (true)
         {
             currentScreen.SetActive(!currentScreen.activeSelf == true);
             yield return new WaitForSeconds(FlashFrequency);
         }
-        // on shutdown ensures that image returns to blank
-        WhiteScreen.SetActive(false);
-        WhiteScreenRight.SetActive(false);
     }
 
     public void StopFlashing()
     {
         if (flashCoroutine != null)
         {
-            isFlashing = false;
             StopCoroutine(flashCoroutine);
             flashCoroutine = null;
             currentScreen.SetActive(true);
         }
     }
 
-    // Methods to cycle through images
-    public void nextImage()
-    {
-        GreenLine.SetActive(!GreenLine.activeSelf);
-        CenterLine.SetActive(!CenterLine.activeSelf);
-    }
-
-    public void previousImage()
-    {
-        if (imageIndex - 1 < 0)
-        {
-            Debug.Log("No more images");
-        }
-        else
-        {
-            images[imageIndex].SetActive(false);
-            imageIndex--;
-            images[imageIndex].SetActive(true);
-        }
-    }
-
-    public void toggleOneEye()
-    {
-        isOneEye = !isOneEye;
-        blackScreen.SetActive(isOneEye);
-    }
-
-    public void toggleOneEyeFlash()
-    {
-        isFlashOneEye = !isFlashOneEye;
-        if (isFlashOneEye)
-        {
-            WhiteScreen.SetActive(false);
-        }
-    }
 }

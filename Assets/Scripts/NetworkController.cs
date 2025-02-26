@@ -1,20 +1,27 @@
 using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class HololensScript : MonoBehaviourPunCallbacks, IOnEventCallback
+public class NetworkController : MonoBehaviourPunCallbacks, IOnEventCallback
 {
 
     public GameObject imageObject;
     public DisplayObjectManager DisplayObjectManager;
-
+    //Define current flashing configs
+    private DisplayObjectManager.ScreenType currentScreen;
+    private DisplayObjectManager.FOV currentFOV;
+    private bool isFlashing;
+    private bool isMonocular;
     // Start is called before the first frame update
     void Start()
     {
         PhotonNetwork.ConnectUsingSettings();
+        //reset flashing config
+        currentScreen = DisplayObjectManager.ScreenType.BlueScreenOfDeath;
+        currentFOV = DisplayObjectManager.FOV.FOV30;
+        isFlashing = false;
+        isMonocular = false;
     }
 
     public override void OnConnectedToMaster()
@@ -34,7 +41,7 @@ public class HololensScript : MonoBehaviourPunCallbacks, IOnEventCallback
     public void OnEvent(EventData photonEvent)
     {
         byte eventCode = photonEvent.Code;
-
+        //calls function based on raised event code from PUN
         switch (eventCode)
         {
             case Utility.PauseTrackerCode:
@@ -59,14 +66,9 @@ public class HololensScript : MonoBehaviourPunCallbacks, IOnEventCallback
             case Utility.ScaleDownEventCode:
                 DisplayObjectManager.scaleDown();
                 break;
-            case Utility.NextEventCode:
-                DisplayObjectManager.nextImage();
-                break;
-            case Utility.PreviousEventCode:
-                DisplayObjectManager.previousImage();
                 break;
             case Utility.ToggleFlashingEventCode:
-                DisplayObjectManager.toggleFlashing();
+                isFlashing = true;
                 break;
             case Utility.MoveLeftJEventCode:
                 DisplayObjectManager.moveLeftJ();
@@ -75,10 +77,33 @@ public class HololensScript : MonoBehaviourPunCallbacks, IOnEventCallback
                 DisplayObjectManager.moveRightJ();
                 break;
             case Utility.ToggleOneEyeEventCode:
-                DisplayObjectManager.toggleOneEye();
+                isMonocular = true;
                 break;
-            case Utility.ToggleOneEyeFlashEventCode:
-                DisplayObjectManager.toggleOneEyeFlash();
+            case Utility.ShowScreenEventCode:
+                DisplayObjectManager.showScreen(currentScreen, currentFOV, isFlashing, isMonocular);
+                break;
+            case Utility.HideScreenEventCode:
+                DisplayObjectManager.HideScreen();
+                break;
+            //Fov swaps
+            case Utility.Toggle30FOV:
+                currentFOV = DisplayObjectManager.FOV.FOV30;
+                break;
+            case Utility.Toggle60FOV:
+                currentFOV = DisplayObjectManager.FOV.FOV60;
+                break;
+            case Utility.Toggle70FOV:
+                currentFOV = DisplayObjectManager.FOV.FOV70;
+                break;
+            case Utility.Toggle80FOV:
+                currentFOV = DisplayObjectManager.FOV.FOV80;
+                break;
+            //Screen types
+            case Utility.BlueScreen:
+                currentScreen = DisplayObjectManager.ScreenType.BlueScreenOfDeath;
+                break;
+            case Utility.WhiteScreen:
+                currentScreen = DisplayObjectManager.ScreenType.WhiteScreen;
                 break;
         }
     }

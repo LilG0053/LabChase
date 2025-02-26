@@ -13,5 +13,12 @@ public static class Utility
     public const byte MoveRightJEventCode = 11;
     public const byte PauseTrackerCode = 12;
     public const byte ToggleOneEyeEventCode = 13;
-    public const byte ToggleOneEyeFlashEventCode = 14;
+    public const byte ShowScreenEventCode = 15;
+    public const byte Toggle30FOV = 16;
+    public const byte Toggle60FOV = 17;
+    public const byte Toggle70FOV = 18;
+    public const byte Toggle80FOV = 19;
+    public const byte BlueScreen = 20;
+    public const byte WhiteScreen = 21;
+    public const byte HideScreenEventCode = 22;
 }
