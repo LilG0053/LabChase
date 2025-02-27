@@ -52,10 +52,14 @@ public class DisplayObjectManager : MonoBehaviour
     public FlashingToggle flashingToggle = FlashingToggle.NoToggle;
     private GameObject currentScreen;
     private Coroutine flashCoroutine;
+    private FOV currFOV; //keeps track of current FOV
+    private bool isMono = false;
+    private bool isOn = false;
 
     void Start()
     {
         HideScreen();
+        currFOV = FOV.FOV30;
         showScreen(ScreenType.WhiteScreen, FOV.FOV30, true);
     }
 
@@ -119,7 +123,7 @@ public class DisplayObjectManager : MonoBehaviour
         BlueScreenOfDeath.SetActive(false);
         WhiteScreen.SetActive(false);
         WhiteScreenRight.SetActive(false);
-
+        isMono = isMonocular;
         //Then activate what is needed
         if (screenType == ScreenType.BlueScreenOfDeath)
         {
@@ -169,6 +173,7 @@ public class DisplayObjectManager : MonoBehaviour
         {
             flashCoroutine = StartCoroutine(FlashRoutine());
         }
+        isOn = true;
     }
 
     public void HideScreen()
@@ -179,6 +184,7 @@ public class DisplayObjectManager : MonoBehaviour
         BlueScreenOfDeath.SetActive(false);
         WhiteScreen.SetActive(false);
         WhiteScreenRight.SetActive(false);
+        isOn = false;
     }
 
     // Flashing effect
@@ -199,6 +205,39 @@ public class DisplayObjectManager : MonoBehaviour
             flashCoroutine = null;
             currentScreen.SetActive(true);
         }
+    }
+
+    public override string ToString()
+    {
+        string str = "";
+        if (currentScreen == BlueScreenOfDeath || currentScreen == BlueScreenOfDeath)
+        {
+            str += "BSOD";
+        }
+        else if (currentScreen == WhiteScreen || currentScreen == WhiteScreenRight)
+        {
+            str += "White";
+        }
+        // Just gets the number from the string, for example FOV30 goes to 30
+        str += currFOV.ToString().Substring(3,2);
+        if (isMono)
+        {
+            str += "Monocular";
+        }
+        else
+        {
+            str += "Binocular";
+        }
+        if (isOn)
+        {
+            str += "Start";
+        }
+        else
+        {
+            str += "Stop";
+        }
+
+        return str;
     }
 
 }
