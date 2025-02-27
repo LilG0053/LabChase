@@ -23,7 +23,7 @@ public class DisplayObjectManager : MonoBehaviour
     [SerializeField] private int movementMagnitude = 1;
     [Header("Choose a magnitude of scale")]
     [SerializeField] private float scaleMagnitude = 1f;
-    [SerializeField] private float FlashFrequency = 0.01f;
+    [SerializeField] private float FlashPeriod = 0.01f; // Higher number is slower flashing
 
     private Vector3 changeVector;
 
@@ -56,7 +56,7 @@ public class DisplayObjectManager : MonoBehaviour
     void Start()
     {
         HideScreen();
-        showScreen(ScreenType.WhiteScreen, FOV.FOV30, false);
+        showScreen(ScreenType.WhiteScreen, FOV.FOV30, true);
     }
 
     void Update()
@@ -187,7 +187,7 @@ public class DisplayObjectManager : MonoBehaviour
         while (true)
         {
             currentScreen.SetActive(!currentScreen.activeSelf == true);
-            yield return new WaitForSeconds(FlashFrequency);
+            yield return new WaitForSeconds(FlashPeriod);
         }
     }
 
