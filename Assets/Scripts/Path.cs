@@ -21,7 +21,7 @@ namespace UnityEngine
         public GameObject pathParent;
 
         public GameObject pathStart;
-        public displayObject displayObject;
+        public DisplayObjectManager DisplayObjectManager;
         private GameObject mainCamera;
         [SerializeField]
         private float rotationSpeed = 30f;
@@ -29,7 +29,7 @@ namespace UnityEngine
         private float cornerThreshold = 2.50f;
         private string filePath;
         private string outputString;
-        
+        private string screenState; // Keeps track of the type of screen 
         private float[] moveSpeeds = { 0.8759f, 1.8271f, 1.4777f, 1.6173f, 0.9857f, 1.9980f, 0.8831f, 1.5290f, 1.8528f, 0.9548f, 0.6855f, 1.3045f, 1.5628f, 0.5291f, 0.8537f, 1.8775f, 1.2766f, 1.3836f, 1.3689f, 1.9237f};
         private int speedIndex;
         private int pointsIndex;
@@ -48,6 +48,7 @@ namespace UnityEngine
             isMoving = false;
             facing = this.transform;
             previousMovingState = isMoving;
+            screenState = "";
             tDelt = 0;
             csvTimer = 0;
             pointsIndex = 0;
@@ -60,9 +61,9 @@ namespace UnityEngine
             {
                 Debug.LogError("No camera found");
             }
-            if (!displayObject)
+            if (!DisplayObjectManager)
             {
-                displayObject = GameObject.Find("XR Origin (XR Rig)/Canvas/Holder").GetComponent<displayObject>();
+                DisplayObjectManager = GameObject.Find("XR Origin (XR Rig)/Canvas/Holder").GetComponent<DisplayObjectManager>();
             }
             toggleReference.action.started += TogglePathMesh;
             rotateReference.action.Enable();
@@ -128,15 +129,24 @@ namespace UnityEngine
 
                 float distanceFromStart = Vector3.Distance(mainCamera.transform.position, pathStart.transform.position);
 
-                if (displayObject.flashingToggle == displayObject.FlashingToggle.FlashingOn)
+                string currDispStr = DisplayObjectManager.ToString();
+                if (screenState != currDispStr) 
+                {
+                    outputString += currDispStr + ',';
+                    screenState = currDispStr;
+                } else
+                {
+                    outputString += ',';
+                }
+                if (DisplayObjectManager.flashingToggle == DisplayObjectManager.FlashingToggle.FlashingOn)
                 {
                     outputString += "Flashing On" + ',';
-                    displayObject.flashingToggle = displayObject.FlashingToggle.NoToggle;
+                    DisplayObjectManager.flashingToggle = DisplayObjectManager.FlashingToggle.NoToggle;
                 }
-                else if (displayObject.flashingToggle == displayObject.FlashingToggle.FlashingOff)
+                else if (DisplayObjectManager.flashingToggle == DisplayObjectManager.FlashingToggle.FlashingOff)
                 {
                     outputString += "Flashing Off" + ',';
-                    displayObject.flashingToggle = displayObject.FlashingToggle.NoToggle;
+                    DisplayObjectManager.flashingToggle = DisplayObjectManager.FlashingToggle.NoToggle;
                 } else
                 {
                     outputString += ',';
