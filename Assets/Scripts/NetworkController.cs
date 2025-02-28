@@ -42,6 +42,7 @@ public class NetworkController : MonoBehaviourPunCallbacks, IOnEventCallback
     public void OnEvent(EventData photonEvent)
     {
         byte eventCode = photonEvent.Code;
+        Debug.Log("event recieved");
         //calls function based on raised event code from PUN
         switch (eventCode)
         {
@@ -83,6 +84,7 @@ public class NetworkController : MonoBehaviourPunCallbacks, IOnEventCallback
                 isMonocular = !isMonocular;
                 break;
             case Utility.ShowScreenEventCode:
+                Debug.Log("Showing screen");
                 DisplayObjectManager.showScreen(currentScreen, currentFOV, isFlashing, isMonocular);
                 break;
             case Utility.HideScreenEventCode:

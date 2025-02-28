@@ -60,7 +60,7 @@ public class DisplayObjectManager : MonoBehaviour
     {
         HideScreen();
         currFOV = FOV.FOV30;
-        showScreen(ScreenType.WhiteScreen, FOV.FOV30, true);
+        //showScreen(ScreenType.WhiteScreen, FOV.FOV30, true);
     }
 
     void Update()
@@ -118,6 +118,7 @@ public class DisplayObjectManager : MonoBehaviour
     // Method to toggle flashing
     public void showScreen(ScreenType screenType, FOV fov, bool isFlashing = false, bool isMonocular = false)
     {
+        Debug.Log("Showing screen");
         //First deactivate everything
         BlueScreenOfDeathRight.SetActive(false);
         BlueScreenOfDeath.SetActive(false);
