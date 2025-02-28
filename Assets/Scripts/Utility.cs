@@ -8,7 +8,8 @@ public static class Utility
     public const byte ScaleDownEventCode = 6;
     public const byte NextEventCode = 7;
     public const byte PreviousEventCode = 8;
-    public const byte ToggleFlashingEventCode = 9;
+    public const byte EnableFlashingEventCode = 9;
+    public const byte DisableFlashingEventCode = 23;
     public const byte MoveLeftJEventCode = 10;
     public const byte MoveRightJEventCode = 11;
     public const byte PauseTrackerCode = 12;

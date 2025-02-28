@@ -67,8 +67,11 @@ public class NetworkController : MonoBehaviourPunCallbacks, IOnEventCallback
             case Utility.ScaleDownEventCode:
                 DisplayObjectManager.scaleDown();
                 break;
-            case Utility.ToggleFlashingEventCode:
+            case Utility.EnableFlashingEventCode:
                 isFlashing = true;
+                break;
+            case Utility.DisableFlashingEventCode:
+                isFlashing = false;
                 break;
             case Utility.MoveLeftJEventCode:
                 DisplayObjectManager.moveLeftJ();
@@ -77,7 +80,7 @@ public class NetworkController : MonoBehaviourPunCallbacks, IOnEventCallback
                 DisplayObjectManager.moveRightJ();
                 break;
             case Utility.ToggleOneEyeEventCode:
-                isMonocular = true;
+                isMonocular = !isMonocular;
                 break;
             case Utility.ShowScreenEventCode:
                 DisplayObjectManager.showScreen(currentScreen, currentFOV, isFlashing, isMonocular);
