@@ -48,19 +48,19 @@ public class HeadlockedScreenManager : MonoBehaviour
 
         if (fov == FOV.FOV80)
         {
-            currentScreen.transform.localScale = new Vector3(0.05f, 0.05f, 0.05f);
+            currentScreen.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
         }
         else if (fov == FOV.FOV70)
         {
-            currentScreen.transform.localScale = new Vector3(0.04f, 0.04f, 0.04f);
+            currentScreen.transform.localScale = new Vector3(0.07f, 0.07f, 0.07f);
         }
         else if (fov == FOV.FOV60)
         {
-            currentScreen.transform.localScale = new Vector3(0.03f, 0.03f, 0.03f);
+            currentScreen.transform.localScale = new Vector3(0.06f, 0.06f, 0.06f);
         }
         else if (fov == FOV.FOV30)
         {
-            currentScreen.transform.localScale = new Vector3(0.02f, 0.02f, 0.02f);
+            currentScreen.transform.localScale = new Vector3(0.03f, 0.03f, 0.03f);
         }
 
         if (isFlashing && flashCoroutine == null)
