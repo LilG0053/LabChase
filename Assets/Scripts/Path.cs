@@ -156,6 +156,7 @@ namespace UnityEngine
                 {
                     //if the moving state has changed then add it to the output string
                     outputString += (isMoving) ? "Start" : "Stop";
+                    outputString += ',';
                     previousMovingState = isMoving;
                 } else
                 {

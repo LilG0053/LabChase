@@ -156,18 +156,22 @@ public class DisplayObjectManager : MonoBehaviour
         if (fov == FOV.FOV80)
         {
             currentScreen.transform.localScale = new Vector3(363f, 363f, 363f);
+            currFOV = FOV.FOV80;
         }
         else if (fov == FOV.FOV70)
         {
             currentScreen.transform.localScale = new Vector3(330f, 330f, 330f);
+            currFOV = FOV.FOV70;
         }
         else if (fov == FOV.FOV60)
         {
             currentScreen.transform.localScale = new Vector3(300f, 300f, 300f);
+            currFOV = FOV.FOV60;
         }
         else if (fov == FOV.FOV30)
         {
             currentScreen.transform.localScale = new Vector3(150f, 150f, 150f);
+            currFOV = FOV.FOV30;
         }
 
         if (isFlashing && flashCoroutine == null)
