@@ -138,19 +138,6 @@ namespace UnityEngine
                 {
                     outputString += ',';
                 }
-                if (DisplayObjectManager.flashingToggle == DisplayObjectManager.FlashingToggle.FlashingOn)
-                {
-                    outputString += "Flashing On" + ',';
-                    DisplayObjectManager.flashingToggle = DisplayObjectManager.FlashingToggle.NoToggle;
-                }
-                else if (DisplayObjectManager.flashingToggle == DisplayObjectManager.FlashingToggle.FlashingOff)
-                {
-                    outputString += "Flashing Off" + ',';
-                    DisplayObjectManager.flashingToggle = DisplayObjectManager.FlashingToggle.NoToggle;
-                } else
-                {
-                    outputString += ',';
-                }
 
                 if (isMoving != previousMovingState)
                 {
