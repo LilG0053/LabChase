@@ -26,6 +26,8 @@ public class DisplayObjectManager : MonoBehaviour
     [SerializeField] private float FlashPeriod = 0.01f; // Higher number is slower flashing
 
     private Vector3 changeVector;
+    private float smallScale = 363f;
+    private float bigScale = 1500f;
 
     // Enum for flashing toggle states
     public enum FlashingToggle
@@ -49,10 +51,18 @@ public class DisplayObjectManager : MonoBehaviour
         WhiteScreen
     }
 
+
+    public enum AspectRatio {
+        Tall,
+        Wide,
+        Square
+    }
+
     public FlashingToggle flashingToggle = FlashingToggle.NoToggle;
     private GameObject currentScreen;
     private Coroutine flashCoroutine;
     private FOV currFOV; //keeps track of current FOV
+    private AspectRatio currAspectRatio;
     private bool isMono = false;
     private bool isOn = false;
 
@@ -116,7 +126,7 @@ public class DisplayObjectManager : MonoBehaviour
     }
 
     // Method to toggle flashing
-    public void showScreen(ScreenType screenType, FOV fov, bool isFlashing = false, bool isMonocular = false)
+    public void showScreen(ScreenType screenType, FOV fov, AspectRatio aspectRatio = AspectRatio.Square, bool isFlashing = false, bool isMonocular = false)
     {
         Debug.Log("Showing screen");
         //First deactivate everything
@@ -155,23 +165,39 @@ public class DisplayObjectManager : MonoBehaviour
 
         if (fov == FOV.FOV80)
         {
-            currentScreen.transform.localScale = new Vector3(363f, currentScreen.transform.localScale.y, 363f);
-            currFOV = FOV.FOV80;
+            smallScale = 363f;
+            currFOV = FOV.FOV80; 
         }
-    else if (fov == FOV.FOV70)
+        else if (fov == FOV.FOV70)
         {
-            currentScreen.transform.localScale = new Vector3(330f, currentScreen.transform.localScale.y, 330f);
+            smallScale = 330f;
             currFOV = FOV.FOV70;
         }
         else if (fov == FOV.FOV60)
         {
-            currentScreen.transform.localScale = new Vector3(300f, currentScreen.transform.localScale.y, 300f);
+            smallScale = 300f;
             currFOV = FOV.FOV60;
         }
         else if (fov == FOV.FOV30)
         {
-            currentScreen.transform.localScale = new Vector3(150f, currentScreen.transform.localScale.y, 150f);
+            smallScale = 150f;
             currFOV = FOV.FOV30;
+        }
+
+        if (aspectRatio == AspectRatio.Tall)
+        {
+            currentScreen.transform.localScale = new Vector3(smallScale, bigScale, currentScreen.transform.localScale.z);
+            currAspectRatio = AspectRatio.Tall;
+        }
+        else if (aspectRatio == AspectRatio.Wide)
+        {
+            currentScreen.transform.localScale = new Vector3(bigScale, smallScale, currentScreen.transform.localScale.z);
+            currAspectRatio = AspectRatio.Wide;
+        }
+        else if (aspectRatio == AspectRatio.Square)
+        {
+            currentScreen.transform.localScale = new Vector3(smallScale, smallScale, currentScreen.transform.localScale.z);
+            currAspectRatio = AspectRatio.Square;
         }
 
         if (isFlashing && flashCoroutine == null)
