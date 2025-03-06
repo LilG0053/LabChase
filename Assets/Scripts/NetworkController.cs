@@ -110,6 +110,9 @@ public class NetworkController : MonoBehaviourPunCallbacks, IOnEventCallback
             case Utility.WhiteScreen:
                 currentScreen = DisplayObjectManager.ScreenType.WhiteScreen;
                 break;
+            case Utility.NextEventCode;
+                
+                break;
         }
     }
 
