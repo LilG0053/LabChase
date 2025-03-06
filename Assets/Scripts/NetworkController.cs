@@ -9,6 +9,8 @@ public class NetworkController : MonoBehaviourPunCallbacks, IOnEventCallback
 
     public GameObject imageObject;
     public DisplayObjectManager DisplayObjectManager;
+    [SerializeField] private GameObject CenterLine;
+    [SerializeField] private GameObject GreenLine;
     //Define current flashing configs
     private DisplayObjectManager.ScreenType currentScreen;
     private DisplayObjectManager.FOV currentFOV;
@@ -110,8 +112,25 @@ public class NetworkController : MonoBehaviourPunCallbacks, IOnEventCallback
             case Utility.WhiteScreen:
                 currentScreen = DisplayObjectManager.ScreenType.WhiteScreen;
                 break;
-            case Utility.NextEventCode;
-                
+            case Utility.NextEventCode:
+                if (CenterLine.activeSelf) 
+                {
+                    CenterLine.SetActive(false);
+                }
+                if (GreenLine.activeSelf)
+                {
+                    GreenLine.SetActive(false);
+                }
+                break;
+            case Utility.PreviousEventCode:
+                if (!CenterLine.activeSelf)
+                {
+                    CenterLine.SetActive(true);
+                }
+                if (!GreenLine.activeSelf)
+                {
+                    GreenLine.SetActive(true);
+                }
                 break;
         }
     }

@@ -339,6 +339,11 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &598170077 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3313324524794469765, guid: bd7e5290d7904df4ea10e7b1c5d63656, type: 3}
+  m_PrefabInstance: {fileID: 1560858135}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &629734953
 GameObject:
   m_ObjectHideFlags: 0
@@ -2170,6 +2175,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3313324525324776890, guid: bd7e5290d7904df4ea10e7b1c5d63656, type: 3}
   m_PrefabInstance: {fileID: 1560858135}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1960028606 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2709527438704942318, guid: bd7e5290d7904df4ea10e7b1c5d63656, type: 3}
+  m_PrefabInstance: {fileID: 1560858135}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1966215112 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1034107937031628727, guid: bd7e5290d7904df4ea10e7b1c5d63656, type: 3}
@@ -2261,6 +2271,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   imageObject: {fileID: 441448743}
   DisplayObjectManager: {fileID: 1966215112}
+  CenterLine: {fileID: 598170077}
+  GreenLine: {fileID: 1960028606}
 --- !u!1 &2059223537
 GameObject:
   m_ObjectHideFlags: 0
