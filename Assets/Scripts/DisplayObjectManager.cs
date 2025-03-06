@@ -26,7 +26,7 @@ public class DisplayObjectManager : MonoBehaviour
     [SerializeField] private float FlashPeriod = 0.01f; // Higher number is slower flashing
 
     private Vector3 changeVector;
-    private float smallScale = 363f;
+    private float smallScale = 225;
     private float bigScale = 1500f;
 
     // Enum for flashing toggle states
@@ -165,22 +165,22 @@ public class DisplayObjectManager : MonoBehaviour
 
         if (fov == FOV.FOV80)
         {
-            smallScale = 363f;
+            smallScale = 544.5f;
             currFOV = FOV.FOV80; 
         }
         else if (fov == FOV.FOV70)
         {
-            smallScale = 330f;
+            smallScale = 495f;
             currFOV = FOV.FOV70;
         }
         else if (fov == FOV.FOV60)
         {
-            smallScale = 300f;
+            smallScale = 450f;
             currFOV = FOV.FOV60;
         }
         else if (fov == FOV.FOV30)
         {
-            smallScale = 150f;
+            smallScale = 225f;
             currFOV = FOV.FOV30;
         }
 
