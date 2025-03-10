@@ -22,4 +22,7 @@ public static class Utility
     public const byte BlueScreen = 20;
     public const byte WhiteScreen = 21;
     public const byte HideScreenEventCode = 22;
+    public const byte ToggleSquareAspectRatio = 26;
+    public const byte ToggleWideAspectRatio = 24;
+    public const byte ToggleTallAspectRatio = 25;
 }

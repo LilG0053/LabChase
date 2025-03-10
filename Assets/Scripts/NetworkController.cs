@@ -8,9 +8,12 @@ public class NetworkController : MonoBehaviourPunCallbacks, IOnEventCallback
 
     public GameObject imageObject;
     public DisplayObjectManager DisplayObjectManager;
+    [SerializeField] private GameObject CenterLine;
+    [SerializeField] private GameObject GreenLine;
     //Define current flashing configs
     private DisplayObjectManager.ScreenType currentScreen;
     private DisplayObjectManager.FOV currentFOV;
+    private DisplayObjectManager.AspectRatio currentAspectRatio;
     private bool isFlashing;
     private bool isMonocular;
     // Start is called before the first frame update
@@ -20,6 +23,7 @@ public class NetworkController : MonoBehaviourPunCallbacks, IOnEventCallback
         //reset flashing config
         currentScreen = DisplayObjectManager.ScreenType.BlueScreenOfDeath;
         currentFOV = DisplayObjectManager.FOV.FOV30;
+        currentAspectRatio = DisplayObjectManager.AspectRatio.Square;
         isFlashing = false;
         isMonocular = false;
     }
@@ -84,7 +88,7 @@ public class NetworkController : MonoBehaviourPunCallbacks, IOnEventCallback
                 break;
             case Utility.ShowScreenEventCode:
                 Debug.Log("Showing screen");
-                DisplayObjectManager.showScreen(currentScreen, currentFOV, isFlashing, isMonocular);
+                DisplayObjectManager.showScreen(currentScreen, currentFOV, currentAspectRatio, isFlashing, isMonocular);
                 break;
             case Utility.HideScreenEventCode:
                 DisplayObjectManager.HideScreen();
@@ -102,12 +106,42 @@ public class NetworkController : MonoBehaviourPunCallbacks, IOnEventCallback
             case Utility.Toggle80FOV:
                 currentFOV = DisplayObjectManager.FOV.FOV80;
                 break;
+            // aspect ratio swaps
+            case Utility.ToggleSquareAspectRatio:
+                currentAspectRatio = DisplayObjectManager.AspectRatio.Square;
+                break;
+            case Utility.ToggleWideAspectRatio:
+                currentAspectRatio = DisplayObjectManager.AspectRatio.Wide;
+                break;
+            case Utility.ToggleTallAspectRatio:
+                currentAspectRatio = DisplayObjectManager.AspectRatio.Tall;
+                break;
             //Screen types
             case Utility.BlueScreen:
                 currentScreen = DisplayObjectManager.ScreenType.BlueScreenOfDeath;
                 break;
             case Utility.WhiteScreen:
                 currentScreen = DisplayObjectManager.ScreenType.WhiteScreen;
+                break;
+            case Utility.NextEventCode:
+                if (CenterLine.activeSelf) 
+                {
+                    CenterLine.SetActive(false);
+                }
+                if (GreenLine.activeSelf)
+                {
+                    GreenLine.SetActive(false);
+                }
+                break;
+            case Utility.PreviousEventCode:
+                if (!CenterLine.activeSelf)
+                {
+                    CenterLine.SetActive(true);
+                }
+                if (!GreenLine.activeSelf)
+                {
+                    GreenLine.SetActive(true);
+                }
                 break;
         }
     }
