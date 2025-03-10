@@ -252,7 +252,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -319,6 +319,10 @@ PrefabInstance:
     - target: {fileID: 6837033524123068816, guid: 6e17e52dc1a7b2c45b287d0631f08db0, type: 3}
       propertyPath: m_Name
       value: Track
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837033524123068816, guid: 6e17e52dc1a7b2c45b287d0631f08db0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2390,7 +2394,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1503790899
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2552,6 +2556,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 547917633}
+    - target: {fileID: 3313324525866735295, guid: bd7e5290d7904df4ea10e7b1c5d63656, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 3313324523829488312, guid: bd7e5290d7904df4ea10e7b1c5d63656, type: 3}

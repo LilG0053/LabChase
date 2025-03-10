@@ -178,7 +178,7 @@ namespace UnityEngine
             filePath = System.IO.Path.Combine(Application.persistentDataPath, System.DateTime.Now.ToString("HH-mm-ss") + ".csv");
             Debug.Log("Filepath is: " + filePath);
             outputString = "";
-            outputString += "Time, Distance, Corner, Flashing, Start/Stop, Position.x, Position.y, Position.z,\n";
+            outputString += "Time,Distance,Corner,Flashing,Start/Stop,Position.x,Position.y,Position.z,\n";
         }
         private void TogglePathMesh(InputAction.CallbackContext context)
         {
