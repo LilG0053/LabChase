@@ -94,17 +94,17 @@ public class NetworkController : MonoBehaviourPunCallbacks, IOnEventCallback
                 DisplayObjectManager.HideScreen();
                 break;
             //Fov swaps
-            case Utility.Toggle30FOV:
+            case Utility.ToggleFOV1:
                 currentFOV = DisplayObjectManager.FOV.FOV30;
                 break;
-            case Utility.Toggle60FOV:
-                currentFOV = DisplayObjectManager.FOV.FOV60;
-                break;
-            case Utility.Toggle70FOV:
+            case Utility.ToggleFOV2:
                 currentFOV = DisplayObjectManager.FOV.FOV70;
                 break;
-            case Utility.Toggle80FOV:
+            case Utility.ToggleFOV3:
                 currentFOV = DisplayObjectManager.FOV.FOV80;
+                break;
+            case Utility.ToggleFOV4:
+                currentFOV = DisplayObjectManager.FOV.FOV90;
                 break;
             // aspect ratio swaps
             case Utility.ToggleSquareAspectRatio:

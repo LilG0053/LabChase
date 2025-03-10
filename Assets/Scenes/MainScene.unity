@@ -2560,6 +2560,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7198255647025551026, guid: bd7e5290d7904df4ea10e7b1c5d63656, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 3313324523829488312, guid: bd7e5290d7904df4ea10e7b1c5d63656, type: 3}
@@ -2968,6 +2972,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   imageObject: {fileID: 441448743}
   DisplayObjectManager: {fileID: 1966215112}
+  CenterLine: {fileID: 0}
+  GreenLine: {fileID: 0}
 --- !u!1 &2059223537
 GameObject:
   m_ObjectHideFlags: 0

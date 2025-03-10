@@ -39,6 +39,7 @@ public class DisplayObjectManager : MonoBehaviour
 
     public enum FOV
     {
+        FOV90,
         FOV80,
         FOV70,
         FOV60,
@@ -71,11 +72,6 @@ public class DisplayObjectManager : MonoBehaviour
         HideScreen();
         currFOV = FOV.FOV30;
         //showScreen(ScreenType.WhiteScreen, FOV.FOV30, true);
-    }
-
-    void Update()
-    {
-
     }
 
     // Movement methods
@@ -162,7 +158,12 @@ public class DisplayObjectManager : MonoBehaviour
                 WhiteScreen.SetActive(true);
             }
         }
-
+        //TODO: change to switch statement
+        if (fov == FOV.FOV90)
+        {
+            smallScale = 675f;
+            currFOV = FOV.FOV90;
+        }
         if (fov == FOV.FOV80)
         {
             smallScale = 544.5f;
