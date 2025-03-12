@@ -19,10 +19,18 @@ namespace UnityEngine
         public InputActionReference rotateReference;
         public GameObject path;
         public GameObject pathParent;
-
         public GameObject pathStart;
         public DisplayObjectManager DisplayObjectManager;
+
         private GameObject mainCamera;
+        [SerializeField]
+        private Transform faceTransform;
+        private Transform facing;
+        private Vector3 centerLookWorldPos;
+        private Vector2 rotateInput;
+        private Vector2 faceToScreenSpace;
+        private Vector2 camLookScreenSpace;
+        private Vector2 capsuleCameraOffset;
         [SerializeField]
         private float rotationSpeed = 30f;
         [SerializeField]
@@ -36,11 +44,11 @@ namespace UnityEngine
         private float tDelt;
         private float timeThresh = 2.0f;
         private float csvTimer;
-        private bool toggleState = true;
-        private Vector2 rotateInput;
-        private static bool isMoving = true;
-        private Transform facing;
         private static bool previousMovingState = true;
+        private static bool isMoving = true;
+        private bool toggleState = true;
+        
+
         void Start()
         {
             if (File.Exists(filePath))
@@ -154,6 +162,16 @@ namespace UnityEngine
                 RecordData(true, mainCamera.transform.position.x.ToString());
                 RecordData(true, mainCamera.transform.position.y.ToString());
                 RecordData(true, mainCamera.transform.position.z.ToString());
+                //Get normalized vector from camera to capsule
+                faceToScreenSpace = Camera.main.WorldToScreenPoint(faceTransform.transform.position);
+                //Get vector camera is facing
+                centerLookWorldPos = mainCamera.transform.position + mainCamera.transform.forward;
+                camLookScreenSpace = Camera.main.WorldToScreenPoint(centerLookWorldPos);
+                //Find angle in between
+                capsuleCameraOffset = camLookScreenSpace - faceToScreenSpace;
+
+                RecordData(true, capsuleCameraOffset.x.ToString());
+                RecordData(true, capsuleCameraOffset.y.ToString());
                 //only executes this part of the code when outside of yth
                 StringBuilder sb = new StringBuilder();
                 sb.AppendLine(outputString);
@@ -178,7 +196,7 @@ namespace UnityEngine
             filePath = System.IO.Path.Combine(Application.persistentDataPath, System.DateTime.Now.ToString("HH-mm-ss") + ".csv");
             Debug.Log("Filepath is: " + filePath);
             outputString = "";
-            outputString += "Time,Distance,Corner,Flashing,Start/Stop,Position.x,Position.y,Position.z,\n";
+            outputString += "Time,Distance,Corner,Flashing,Start/Stop,Position.x,Position.y,Position.z,Offset.x,Offset.y\n";
         }
         private void TogglePathMesh(InputAction.CallbackContext context)
         {
