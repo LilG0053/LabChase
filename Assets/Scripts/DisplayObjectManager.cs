@@ -252,6 +252,18 @@ public class DisplayObjectManager : MonoBehaviour
         }
         // Just gets the number from the string, for example FOV30 goes to 30
         str += currFOV.ToString().Substring(3,2);
+        if (currAspectRatio == AspectRatio.Tall)
+        {
+            str += "Vertical";
+        }
+        else if (currAspectRatio == AspectRatio.Wide)
+        {
+            str += "Horizontal";
+        }
+        else
+        {
+            str += "Square";
+        }
         if (isMono)
         {
             str += "Monocular";
