@@ -71,7 +71,7 @@ namespace UnityEngine
             }
             if (!DisplayObjectManager)
             {
-                DisplayObjectManager = GameObject.Find("XR Origin (XR Rig)/Canvas/Holder").GetComponent<DisplayObjectManager>();
+                DisplayObjectManager = GameObject.Find("XR Origin (XR Rig)/Canvas/DispObj").GetComponent<DisplayObjectManager>();
             }
             toggleReference.action.started += TogglePathMesh;
             rotateReference.action.Enable();
