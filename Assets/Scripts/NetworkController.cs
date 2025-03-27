@@ -98,12 +98,18 @@ public class NetworkController : MonoBehaviourPunCallbacks, IOnEventCallback
                 currentFOV = DisplayObjectManager.FOV.FOV30;
                 break;
             case Utility.ToggleFOV2:
-                currentFOV = DisplayObjectManager.FOV.FOV70;
+                currentFOV = DisplayObjectManager.FOV.FOV45;
                 break;
             case Utility.ToggleFOV3:
-                currentFOV = DisplayObjectManager.FOV.FOV80;
+                currentFOV = DisplayObjectManager.FOV.FOV60;
                 break;
             case Utility.ToggleFOV4:
+                currentFOV = DisplayObjectManager.FOV.FOV70;
+                break;
+            case Utility.ToggleFOV5:
+                currentFOV = DisplayObjectManager.FOV.FOV80;
+                break;
+            case Utility.ToggleFOV6:
                 currentFOV = DisplayObjectManager.FOV.FOV90;
                 break;
             // aspect ratio swaps

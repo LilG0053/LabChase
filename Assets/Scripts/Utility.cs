@@ -19,6 +19,8 @@ public static class Utility
     public const byte ToggleFOV2 = 17;
     public const byte ToggleFOV3 = 18;
     public const byte ToggleFOV4 = 19;
+    public const byte ToggleFOV5 = 27;
+    public const byte ToggleFOV6 = 28;
     public const byte BlueScreen = 20;
     public const byte WhiteScreen = 21;
     public const byte HideScreenEventCode = 22;

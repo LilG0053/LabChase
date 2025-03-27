@@ -43,6 +43,7 @@ public class DisplayObjectManager : MonoBehaviour
         FOV80,
         FOV70,
         FOV60,
+        FOV45,
         FOV30
     }
 
@@ -178,6 +179,11 @@ public class DisplayObjectManager : MonoBehaviour
         {
             smallScale = 450f;
             currFOV = FOV.FOV60;
+        }
+        else if (fov == FOV.FOV45)
+        {
+            smallScale = 337.5f;
+            currFOV = FOV.FOV45;
         }
         else if (fov == FOV.FOV30)
         {
