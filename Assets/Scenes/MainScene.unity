@@ -198,6 +198,96 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 124033928}
   m_CullTransparentMesh: 1
+--- !u!1 &148360007
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 148360008}
+  - component: {fileID: 148360011}
+  - component: {fileID: 148360010}
+  - component: {fileID: 148360009}
+  m_Layer: 0
+  m_Name: Viewport
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &148360008
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148360007}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1069214222}
+  m_Father: {fileID: 1919940182}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &148360009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148360007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 0
+--- !u!114 &148360010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148360007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &148360011
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148360007}
+  m_CullTransparentMesh: 1
 --- !u!1001 &190711049
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -259,11 +349,254 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
+--- !u!1 &227318374
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 227318375}
+  - component: {fileID: 227318378}
+  - component: {fileID: 227318377}
+  - component: {fileID: 227318376}
+  m_Layer: 0
+  m_Name: Scrollbar Horizontal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &227318375
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 227318374}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1354059511}
+  m_Father: {fileID: 1919940182}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 20}
+  m_Pivot: {x: 0, y: 0}
+--- !u!114 &227318376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 227318374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4db7a114972834c8e4117be1d82ba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1425831107}
+  m_HandleRect: {fileID: 1425831106}
+  m_Direction: 0
+  m_Value: 0
+  m_Size: 0.9999999
+  m_NumberOfSteps: 0
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &227318377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 227318374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &227318378
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 227318374}
+  m_CullTransparentMesh: 1
 --- !u!1 &441448743 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2843188310618245562, guid: 88353dda8b1e1744ebbae5307316685e, type: 3}
   m_PrefabInstance: {fileID: 1966215110}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &458821076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 458821077}
+  - component: {fileID: 458821081}
+  - component: {fileID: 458821080}
+  - component: {fileID: 458821079}
+  - component: {fileID: 458821078}
+  m_Layer: 0
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &458821077
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458821076}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.0029999733}
+  m_LocalScale: {x: 0.00006, y: 0.00006, z: 0.00006}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 1919940182}
+  m_Father: {fileID: 1935369777}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1440, y: 2560}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &458821078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458821076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding: {x: 79, y: 70, z: 70, w: 70}
+  m_Softness: {x: 0, y: 0}
+--- !u!114 &458821079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458821076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &458821080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458821076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 1
+--- !u!223 &458821081
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458821076}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 547917633}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1001 &494109914
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -329,6 +662,81 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e17e52dc1a7b2c45b287d0631f08db0, type: 3}
+--- !u!1 &509822405
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 509822406}
+  - component: {fileID: 509822408}
+  - component: {fileID: 509822407}
+  m_Layer: 0
+  m_Name: Handle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &509822406
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509822405}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1471236781}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 20, y: 20}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &509822407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509822405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &509822408
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509822405}
+  m_CullTransparentMesh: 1
 --- !u!20 &547917633
 Camera:
   m_ObjectHideFlags: 0
@@ -1132,6 +1540,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6528530116241769232}
+  - {fileID: 1935369777}
   m_Father: {fileID: 769119077}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &714885984 stripped
@@ -1849,6 +2258,179 @@ Transform:
   - {fileID: 719647958}
   m_Father: {fileID: 1717954560786748952}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &802176366
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 802176367}
+  - component: {fileID: 802176370}
+  - component: {fileID: 802176369}
+  - component: {fileID: 802176368}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &802176367
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802176366}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: -0.08999999, y: 0.16, z: 0.0049999994}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1935369777}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &802176368
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802176366}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &802176369
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802176366}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 199ef63d597c6cd41bc3d147856fa224, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &802176370
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802176366}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &967481881
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 967481884}
+  - component: {fileID: 967481883}
+  - component: {fileID: 967481882}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &967481882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967481881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &967481883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967481881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &967481884
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967481881}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1066432704
 GameObject:
   m_ObjectHideFlags: 0
@@ -1923,6 +2505,285 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1066432704}
+  m_CullTransparentMesh: 1
+--- !u!1 &1069214221
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1069214222}
+  - component: {fileID: 1069214224}
+  - component: {fileID: 1069214223}
+  m_Layer: 0
+  m_Name: Content
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1069214222
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069214221}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.00069461146}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 148360008}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 1214.998}
+  m_SizeDelta: {x: 0, y: 145100}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &1069214223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069214221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 136
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 5
+    m_MaxSize: 300
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "Samsung Galaxy XR First Impressions: What You Need To Know\r\nDavid Heaney\r\n\nI
+    briefly tried Samsung Galaxy XR at its launch event in New York last week, and
+    I have mixed initial thoughts about the first Android XR headset.\r\n\r\nLaunched
+    last night in the US & South Korea, Galaxy XR is priced at $1800, and its optional
+    controllers are $250 extra, or $175 if you buy them with the headset before November
+    17.\r\n\r\nAlready, the Galaxy XR headset is backordered to November 4, while
+    new orders for the Galaxy XR Controllers won't ship until November 28.\r\n\r\nThe
+    launch comes almost three years after Samsung first announced that it was working
+    on a standalone XR headset, with Google handling much of the software and Qualcomm
+    providing the chipset, and almost a year after it formally unveiled it as \"Project
+    Moohan\" as Google revealed Android XR.\r\n\r\nAt its core, Galaxy XR is a high-end
+    standalone headset with 4K micro-OLED displays, hand tracking, eye tracking,
+    face tracking, an active depth sensor, and fully automatic motorized lens separation
+    adjustment to match your interpupillary distance (IPD). You can read the detailed
+    features and specifications of Galaxy XR here, and I strongly recommend you do
+    so, but this article is about my brief experience actually using it.\n\nSamsung
+    invited UploadVR to its embargoed launch event in New York last week, and we
+    paid for our own flights and accommodation to attend it. I was in the audience
+    for the on-stage presentation Samsung broadcast last night, and afterwards my
+    colleague Ian Hamilton and I spoke to Google and Samsung representatives for
+    hours as they used Galaxy XR directly in front of us, casting the headset's view
+    to a projector in the room full of journalists and influencers.\r\n\r\nWe ended
+    the day with a very short hands-on demo where I used Galaxy XR myself for around
+    25 minutes, though it felt like even less. I'll need far more time in the headset
+    before I can bring you a more definitive assessment. But read on for my initial
+    impressions based on my short time with Samsung Galaxy XR.\r\n\r\nThe Form Factor
+    & Fit Matter\r\nMany people have suggested that Galaxy XR is essentially an Android-ecosystem
+    Apple Vision Pro for half the price. And while that's broadly the product proposition
+    here, the form factor is very different, and it's important you understand how
+    and why before buying it.\r\n\r\nFor starters, Galaxy XR has a rigid plastic
+    strap that cradles the back of your head, like a Quest Elite Strap, offering
+    balanced support. But it's non-detachable, and this means you're stuck with it
+    for the lifetime of the headset. You can't swap it out for a soft strap to lean
+    back on a chair, sofa, or bed. If you're interested in the idea of watching movies
+    on a giant virtual screen, a pitched use case for both Vision Pro and Galaxy
+    XR, you need to be aware of this. And if you're interested in using the headset
+    on a plane, for example, you'd find yourself bumping the back of the strap into
+    the seat frequently. If you don't need to use the headset in these scenarios,
+    though, the rear strap design is all upside.\r\n\r\nWhen it comes to the front
+    of Galaxy XR, though, the differences are even more important to understand.\n\nThere
+    are fundamentally two ways for a half-kilogram headset to attach to the front
+    of your head: against your entire upper face, or just the top of your forehead.\r\n\r\nIn
+    theory, the upper face approach, used in headsets like Apple Vision Pro and Meta
+    Quest 3, distributes the pressure over a greater area. But this area also includes
+    the sinuses under your lower forehead and cheeks, which are very sensitive to
+    being crushed, and this is the cause of much of the discomfort associated with
+    VR. It also blocks out your view of your periphery, with the exception of the
+    odd open interface Meta released for Quest 3 last year.\r\n\r\nThe alternate
+    approach, an upper-forehead pad, is what Samsung Galaxy XR uses, like PlayStation
+    VR2 and the discontinued Meta Quest Pro and HoloLens 2 headsets. This keeps the
+    pressure off your sinuses, and makes the visor feel as if it's floating in front
+    of your face, rather than being attached, while also letting you see the real
+    world below you and to the sides by default \u2013 there are optional side blockers
+    for immersion in the box. The singular adjustment you make is to the dial at
+    the rear, tightening or loosening the headset's grip on your head.\r\n\r\nGalaxy
+    XR felt comfortable and light in my 25 minutes with it. But that simply is nowhere
+    near enough time to tell you whether it would be comfortable for hours on end.
+    What I can tell you is that its ergonomics feel very similar to Meta Quest Pro,
+    except 200 grams lighter (Galaxy XR feels very light), and Quest Pro's comfort
+    was extremely divisive. How the forehead pad approach will feel for you will
+    depend on the exact shape of your skull. Some people find the approach significantly
+    more comfortable than any ski-goggle-style headsets, while others find it agonizingly
+    painful.\r\n\r\nMaybe someday someone will release an app that lets you scan
+    the shape of your head to recommend whether a particular type of headset strap
+    should suit it. In the meantime, I recommend trying to get a demo of Galaxy XR,
+    if you've never used a headset with its ergonomics, before dropping $2000.\r\n\r\nHow
+    That Affected What I Saw\r\nMy description so far describes how the strap design
+    of Samsung Galaxy XR might limit how you can use the headset, how comfortable
+    you feel, and how you see your surroundings by default. But it also affects how
+    your eyes are aligned with the lenses.\r\n\r\nTo be clear, I'm not talking about
+    horizontal alignment here. Galaxy XR has fully automatic IPD adjustment, guided
+    by its eye tracking, with motorized lenses that shift sideways to match the horizontal
+    separation of your eyes, which varies between people. This worked flawlessly
+    for me. In fact, the process worked faster than Apple Vision Pro. But this solves
+    for only one of three axis.\n\nAn issue with a forehead-mounted headset is that
+    it can limit how close the lenses can get to your eyes. To what degree, again,
+    will depend on the exact shape of your skull. Headsets like Quest Pro and PS
+    VR2 have a separate dial at the front to adjust the depth of the visor to your
+    face, letting you bring the lenses closer to your eye, but Galaxy XR does not.\r\n\r\nFor
+    me, my eyes just weren't close enough to Galaxy XR's lenses, and the result was
+    that I wasn't getting the full field of view, and nor the full binocular overlap,
+    meaning I could see faint dark lines where the two lens views intersect. And
+    worse, it induced a kind of perceived display brightness inconsistency, where
+    areas of the lenses near the edges appeared to be darker. This is something I've
+    seen before many times in headsets where my eyes aren't close enough to the lenses.
+    If Galaxy XR had a lens depth dial, I'd have used it. But it does not.\n\nDays
+    later, I found out that there are two forehead interface sizes in the box of
+    Galaxy XR, and it's possible I was just using the wrong one for my head. I was
+    not informed of this before or during the demo.\r\n\r\nPutting the lens depth
+    issue aside, the displays of Galaxy XR are vibrant and incredibly sharp. They
+    felt on par with Apple Vision Pro, perhaps a tad sharper. As we've said before
+    many times at UploadVR: 4K micro-OLEDs are the ultimate displays, and blow the
+    2K panels you find on mainstream headsets out of the water. A 2K LCD feels like
+    looking at a screen. A 4K micro-OLED feels like looking at a virtual world. Once
+    you try 4K micro-OLED, you can never really go back. Galaxy XR is no exception
+    to this truth.\n\nTracking & Passthrough\r\nOne of the first things I like to
+    test when trying a new headset is its core XR technology.\r\n\r\nPassthrough,
+    your view of the real world, is hard to compare between headsets without using
+    them in the same room and the exact same lighting, as all cameras are heavily
+    affected by their environment. But my initial preliminary assessment is that
+    Galaxy XR's passthrough is the best on the market yet.\r\n\r\nWith the same 6.5
+    megapixel resolution, it felt as sharp as Apple Vision Pro, and the perspective
+    and depth felt more correct, while it lacked any of the annoying warping distortion
+    of Meta Quest 3.\r\n\r\nGalaxy XR's passthrough does, however, exhibit a similar
+    blur as Apple Vision Pro when you turn your head. If you keep your head still,
+    moving objects like your hands appear smooth, to be clear, and the latency feels
+    extremely low. But if you rotate your head, there's a distinct motion blur. As
+    I covered in my Apple Vision Pro review, this is the opposite situation from
+    Quest 3.\n\nTransitioning into a virtual home environment, which you can do at
+    any time by double-tapping the capacitive touchpad on the side of Galaxy XR,
+    I found the positional head tracking to be rock solid, even as I got up and walked
+    around the room. In 2025, for a first-class tech company like Google at least,
+    inside-out positional tracking via computer vision is essentially a solved problem.\r\n\r\nHand
+    tracking, on the other hand, was more of a mixed bag. It's low latency and has
+    very little jitter, and quickly recovers from full occlusion. But it doesn't
+    handle overlapping your hands quite as well as Quest 3 or Apple Vision Pro, with
+    noticeable jankiness, and when I tried moving my hands rapidly, the tracking
+    constantly cut out, with the hands flickering in and out of existence. It wouldn't
+    be suitable for fast-motion games.\r\n\r\nMeta has had years to refine its hand
+    tracking, since shipping the feature as a software update for the original Oculus
+    Quest, with 2.0, 2.1, 2.2, and 2.3 updates all bringing significant improvements,
+    including to handling fast motions. We'll be closely following whether Google
+    does the same for Android XR through 2026.\r\n\r\nUnfortunately, I was not able
+    to test Galaxy XR Controllers in-headset, so I can't tell you about how well
+    they do or don't work. I did briefly hold them, though. They felt slightly cheap,
+    and didn't conform to my hands as well as Meta's Touch Plus controllers. But
+    I need to try them in XR.\r\n\r\nA Note On The Battery\r\nJust like Apple Vision
+    Pro, Samsung Galaxy XR requires the included external tethered battery. And as
+    such, everything I said about the tradeoffs of a tethered battery in my Apple
+    Vision Pro review applies.\r\n\r\nWhen I put on Galaxy XR, I had to consciously
+    adjust the battery to a suitable position. And when I stood up, I had to put
+    it in my pocket and move my arm in front of the cable. It's an added friction
+    that crops up even in a 25 minute demo, and one that you need to be aware of
+    if you're coming from a headset with a built-in battery, or considering getting
+    your first-ever headset.\r\n\r\nIn contrast, it's refreshingly convenient to
+    pick up a Meta Quest headset and just put it on your head, with no thought for
+    cables or batteries needed.\r\n\r\nHow annoying an external battery is will come
+    down to personal preference. Some people couldn't care less. But I'd like to
+    once again quote Oculus executive Jason Rubin in our 2019 interview with him,
+    when we asked whether his company was considering a tethered portable compute
+    model:\r\n\r\n\"That\u2019s a model we\u2019ve definitely explored. There\u2019s
+    a lot of upsides to it, like visually having the smaller glasses on your head,
+    big advantage. Battery, keeping the weight away, the heat away from the screen,
+    being able to separate battery. All of that is great.\r\n\r\nThe problem is when
+    you do it, cause we\u2019ve tried it, you have a wire. And you don\u2019t ever
+    forget that wire.\"\r\nOf course, a lot has changed in six years, and our sources
+    suggest Meta plans a tethered puck for its next headset too. But it remains to
+    be seen which approach to the battery consumers will choose in the long run.\r\n\r\nPerformance
+    & Android XR\r\nThe demo I had was nowhere near long enough to assess an entirely
+    new XR platform, so I'm going to avoid making sweeping conclusions here.\r\n\r\nWhat
+    I can tell you is that Android XR broadly feels like a crossover between Apple's
+    visionOS and Meta's Horizon OS, and on Galaxy XR it felt incredibly snappy. I
+    could open 2D or immersive apps and navigate around the system menus without
+    any visible hitch in framerate. Performance was noticeably smoother than what
+    I'm used to with Meta Quest 3. But I didn't have time to really push it to its
+    limit, and unlike with Meta's Horizon OS, in Google's Android XR you can't bring
+    up windows while still inside an immersive experience.\r\n\r\nOn paper, Galaxy
+    XR's XR2+ Gen 2 chipset is only around 20% more powerful than the one in Quest
+    3, but Galaxy XR has a few other tricks up its sleeve, including twice the RAM
+    (16GB), eye-tracked foveated rendering, and a default refresh rate of 72Hz, easier
+    to maintain than Quest 3's default 90Hz. Some of it may also be down to software.
+    Google, after all, is the company that makes Android itself, while Meta is forking
+    it and isn't exactly known for its software quality.\n\nThat 72Hz refresh rate
+    does come with a tradeoff, though. In Google Maps immersive mode, for example,
+    when very bright content was being displayed at the edge of the lenses I could
+    see a faint flickering effect. This is a well-known issue with low-persistence
+    displays if you drive them below 90Hz. And again \u2013 a common theme of this
+    article \u2013 varies between individuals.\r\n\r\nSpeaking of Google Maps immersive
+    mode, it's essentially PC VR's Google Earth VR officially ported to standalone
+    VR for the first time. On Galaxy XR's 4K micro-OLED displays it looks and feels
+    incredible, and this is how I want to plan trips from now on. Its immersive Gaussian
+    splats of select locations were cool to try, too, but significantly lower quality
+    than Meta's Horizon Hyperscape.\n\nAnother Google feature that impressed me was
+    in Photos. While other headsets like Apple Vision Pro and Pico 4 Ultra already
+    let you convert 2D photos into 3D, Android XR goes a step further by allowing
+    this for videos too. It's remarkable how quickly it works. Like many Google features,
+    it's server-side, so if you're opposed to that for privacy reasons, you'll miss
+    out. But it was remarkable to see a 2D video turn into 3D so quickly, in front
+    of my eyes.\r\n\r\nThe strangest thing about Android XR is that by default, it
+    doesn't use the gaze-and-pinch interaction system introduced by Apple Vision
+    Pro. Instead, you point with your hands as you would on Quest 3. Eye tracking
+    is always active for foveated rendering, but gaze-and-pinch is an option, off
+    by default. I enabled it in Settings, though, and found it to work well. I'm
+    very puzzled as to why it's not the default, as my almost two years of time using
+    Apple Vision Pro has me unshakably convinced that it's the future default input
+    system for all of XR.\r\n\r\nAnother notable difference between visionOS and
+    Android XR is that there's no system-wide hand occlusion by default. It's more
+    like every other VR platform, where each developer implements a rendered hand,
+    arms, or full body driven by hand tracking. There is an experimental option for
+    it in the home environment, but that didn't seem to apply to third-party immersive
+    apps.\n\nConclusions\r\nMy time with Samsung Galaxy XR and Android XR was frustratingly
+    short, and this article documents only my very initial impressions.\r\n\r\nGalaxy
+    XR delivers the magic of 4K micro-OLED in a standalone form factor at half the
+    price of Apple Vision Pro. Meanwhile, the Android XR platform from Google seemed
+    well-made in my time with it, and is a potential serious threat to Meta in the
+    long term.\n\nBut Galaxy XR's form factor, while perhaps similar at first glance
+    of a render, is fundamentally different than Vision Pro (and Quest 3), and my
+    experience with similar headsets tells me that its comfort might vary significantly
+    between individuals.\r\n\r\nSamsung did not provide UploadVR with a review unit,
+    but we've now ordered our own Galaxy XR at our own expense, and aim to bring
+    you a review next month after we get it."
+--- !u!222 &1069214224
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069214221}
   m_CullTransparentMesh: 1
 --- !u!4 &1173516070
 Transform:
@@ -2259,6 +3120,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1338016906}
   m_CullTransparentMesh: 1
+--- !u!1 &1354059510
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1354059511}
+  m_Layer: 0
+  m_Name: Sliding Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1354059511
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354059510}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1425831106}
+  m_Father: {fileID: 227318375}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -20, y: -20}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1415534855
 GameObject:
   m_ObjectHideFlags: 0
@@ -2377,6 +3274,117 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &1425831105
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1425831106}
+  - component: {fileID: 1425831108}
+  - component: {fileID: 1425831107}
+  m_Layer: 0
+  m_Name: Handle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1425831106
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425831105}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1354059511}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 20, y: 20}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1425831107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425831105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1425831108
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425831105}
+  m_CullTransparentMesh: 1
+--- !u!1 &1471236780
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1471236781}
+  m_Layer: 0
+  m_Name: Sliding Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1471236781
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471236780}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 509822406}
+  m_Father: {fileID: 2053705136}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -20, y: -20}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1503790898
 GameObject:
   m_ObjectHideFlags: 0
@@ -2582,6 +3590,192 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3313324525324776890, guid: bd7e5290d7904df4ea10e7b1c5d63656, type: 3}
   m_PrefabInstance: {fileID: 1560858135}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1919940181
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1919940182}
+  - component: {fileID: 1919940187}
+  - component: {fileID: 1919940186}
+  - component: {fileID: 1919940185}
+  - component: {fileID: 1919940184}
+  - component: {fileID: 1919940183}
+  m_Layer: 0
+  m_Name: Scroll View
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1919940182
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919940181}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 148360008}
+  - {fileID: 227318375}
+  - {fileID: 2053705136}
+  m_Father: {fileID: 458821077}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1300, y: 2430}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1919940183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919940181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0d1f8e2b9b5c464ca9d6ebda7ceaf2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rightHandPrimary2DAxis: {fileID: 4674301169611876373, guid: 59cb6c0910deda240ab043a152b9d6bf, type: 3}
+  scrollSpeed: 0.0007
+--- !u!114 &1919940184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919940181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 0
+--- !u!114 &1919940185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919940181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Content: {fileID: 1069214222}
+  m_Horizontal: 1
+  m_Vertical: 1
+  m_MovementType: 1
+  m_Elasticity: 0.1
+  m_Inertia: 1
+  m_DecelerationRate: 0.135
+  m_ScrollSensitivity: 1
+  m_Viewport: {fileID: 148360008}
+  m_HorizontalScrollbar: {fileID: 227318376}
+  m_VerticalScrollbar: {fileID: 2053705137}
+  m_HorizontalScrollbarVisibility: 1
+  m_VerticalScrollbarVisibility: 2
+  m_HorizontalScrollbarSpacing: -3
+  m_VerticalScrollbarSpacing: -3
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1919940186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919940181}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1919940187
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919940181}
+  m_CullTransparentMesh: 1
+--- !u!1 &1935369776
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1935369777}
+  - component: {fileID: 1935369778}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1935369777
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935369776}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.46174863, y: 0, z: 0, w: 0.8870109}
+  m_LocalPosition: {x: -0.05, y: 0.015, z: -0.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 458821077}
+  - {fileID: 802176367}
+  m_Father: {fileID: 712224711}
+  m_LocalEulerAnglesHint: {x: 55, y: 0, z: 0}
+--- !u!114 &1935369778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935369776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6a23b2b251019949a5f5fa042d4f05c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActive: 0
 --- !u!1 &1951150320 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6766802645840075825, guid: 88353dda8b1e1744ebbae5307316685e, type: 3}
@@ -2980,8 +4174,135 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   imageObject: {fileID: 441448743}
   DisplayObjectManager: {fileID: 1966215112}
+  PhoneChildActivityController: {fileID: 1935369778}
   CenterLine: {fileID: 0}
   GreenLine: {fileID: 0}
+--- !u!1 &2053705135
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2053705136}
+  - component: {fileID: 2053705139}
+  - component: {fileID: 2053705138}
+  - component: {fileID: 2053705137}
+  m_Layer: 0
+  m_Name: Scrollbar Vertical
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2053705136
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053705135}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1471236781}
+  m_Father: {fileID: 1919940182}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 20, y: -17}
+  m_Pivot: {x: 1, y: 1}
+--- !u!114 &2053705137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053705135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4db7a114972834c8e4117be1d82ba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 509822407}
+  m_HandleRect: {fileID: 509822406}
+  m_Direction: 2
+  m_Value: 1
+  m_Size: 0.016747067
+  m_NumberOfSteps: 0
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &2053705138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053705135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2053705139
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053705135}
+  m_CullTransparentMesh: 1
 --- !u!1 &2059223537
 GameObject:
   m_ObjectHideFlags: 0
@@ -4924,7 +6245,7 @@ Transform:
   m_GameObject: {fileID: 5895826683356223914}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: -0.05}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5543,3 +6864,4 @@ SceneRoots:
   - {fileID: 1415534858}
   - {fileID: 1972375987}
   - {fileID: 494109914}
+  - {fileID: 967481884}

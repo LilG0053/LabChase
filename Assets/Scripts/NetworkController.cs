@@ -8,6 +8,7 @@ public class NetworkController : MonoBehaviourPunCallbacks, IOnEventCallback
 
     public GameObject imageObject;
     public DisplayObjectManager DisplayObjectManager;
+    public ChildActivityController PhoneChildActivityController;
     [SerializeField] private GameObject CenterLine;
     [SerializeField] private GameObject GreenLine;
     //Define current flashing configs
@@ -92,6 +93,13 @@ public class NetworkController : MonoBehaviourPunCallbacks, IOnEventCallback
                 break;
             case Utility.HideScreenEventCode:
                 DisplayObjectManager.HideScreen();
+                break;
+            case Utility.ShowPhoneEventCode:
+                Debug.Log("Showing phone");
+                PhoneChildActivityController.Enable();
+                break;
+            case Utility.HidePhoneEventCode:
+                PhoneChildActivityController.Disable();
                 break;
             //Fov swaps
             case Utility.ToggleFOV1:

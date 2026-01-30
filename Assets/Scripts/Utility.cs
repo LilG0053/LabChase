@@ -27,4 +27,6 @@ public static class Utility
     public const byte ToggleSquareAspectRatio = 26;
     public const byte ToggleWideAspectRatio = 24;
     public const byte ToggleTallAspectRatio = 25;
+    public const byte ShowPhoneEventCode = 29;
+    public const byte HidePhoneEventCode = 30;
 }

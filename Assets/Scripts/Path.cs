@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.IO;
 using System.Runtime.CompilerServices;
+using Unity.XR.CoreUtils;
 
 namespace UnityEngine
 {
@@ -20,6 +21,7 @@ namespace UnityEngine
         public GameObject path;
         public GameObject pathParent;
         public GameObject pathStart;
+        public GameObject centerLineParent;
         public DisplayObjectManager DisplayObjectManager;
 
         private GameObject mainCamera;
@@ -47,7 +49,8 @@ namespace UnityEngine
         private static bool previousMovingState = true;
         private static bool isMoving = true;
         private bool toggleState = true;
-        
+        private List<Collider> centerLineSegments = new List<Collider>();
+
 
         void Start()
         {
@@ -76,6 +79,14 @@ namespace UnityEngine
             toggleReference.action.started += TogglePathMesh;
             rotateReference.action.Enable();
             rotateReference.action.performed += RotatePath;
+            foreach (Transform segment in centerLineParent.transform)
+            {
+                Collider col = segment.GetComponent<Collider>();
+                if (col != null)
+                {
+                    centerLineSegments.Add(col);
+                }
+            }
         }
 
         // Update is called once per frame
@@ -172,6 +183,21 @@ namespace UnityEngine
 
                 RecordData(true, capsuleCameraOffset.x.ToString());
                 RecordData(true, capsuleCameraOffset.y.ToString());
+
+                float centerDeviation = float.MaxValue;
+                foreach (Collider collider in centerLineSegments)
+                {
+                    if (collider != null)
+                    {
+                        Vector3 closestPoint = collider.ClosestPoint(mainCamera.transform.position);
+                        centerDeviation = Mathf.Min(centerDeviation, Vector3.Distance(closestPoint, mainCamera.transform.position));
+                    }
+                }
+
+                if (centerDeviation == float.MaxValue) centerDeviation = -1f;
+
+                RecordData(true, centerDeviation.ToString());
+
                 //only executes this part of the code when outside of yth
                 StringBuilder sb = new StringBuilder();
                 sb.AppendLine(outputString);
@@ -196,7 +222,7 @@ namespace UnityEngine
             filePath = System.IO.Path.Combine(Application.persistentDataPath, System.DateTime.Now.ToString("HH-mm-ss") + ".csv");
             Debug.Log("Filepath is: " + filePath);
             outputString = "";
-            outputString += "Time,Distance,Corner,Flashing,Start/Stop,Position.x,Position.y,Position.z,Offset.x,Offset.y,\n";
+            outputString += "Time,Distance,Corner,Flashing,Start/Stop,Position.x,Position.y,Position.z,Offset.x,Offset.y,Deviation\n";
         }
         private void TogglePathMesh(InputAction.CallbackContext context)
         {

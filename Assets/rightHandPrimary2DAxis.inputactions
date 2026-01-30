@@ -1,0 +1,34 @@
+{
+    "name": "rightHandPrimary2DAxis",
+    "maps": [
+        {
+            "name": "Custom XR",
+            "id": "9f8d249a-5107-41c4-8f1d-fc0e728ff760",
+            "actions": [
+                {
+                    "name": "Right Joystick",
+                    "type": "Value",
+                    "id": "d69975ec-c47b-488c-9433-78f80792af3b",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c07da53f-ff67-4c44-8169-d9c57e6d6059",
+                    "path": "<XRController>{RightHand}/{Primary2DAxis}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Right Joystick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
