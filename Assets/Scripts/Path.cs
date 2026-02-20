@@ -28,11 +28,7 @@ namespace UnityEngine
         [SerializeField]
         private Transform faceTransform;
         private Transform facing;
-        private Vector3 centerLookWorldPos;
         private Vector2 rotateInput;
-        private Vector2 faceToScreenSpace;
-        private Vector2 camLookScreenSpace;
-        private Vector2 capsuleCameraOffset;
         [SerializeField]
         private float rotationSpeed = 30f;
         [SerializeField]
@@ -146,8 +142,6 @@ namespace UnityEngine
 
                 RecordData(distanceFromNearestCorner <= cornerThreshold, "Within corner thresh");
 
-                float distanceFromStart = Vector3.Distance(mainCamera.transform.position, pathStart.transform.position);
-
                 string currDispStr = DisplayObjectManager.ToString();
                 if (screenState != currDispStr) 
                 {
@@ -169,20 +163,26 @@ namespace UnityEngine
                     outputString += ',';
                 }
 
+                Vector3 cornerToCamera = Points[0].InverseTransformPoint(mainCamera.transform.position); // Points[0] is first corner
+                Debug.Log($"X: {cornerToCamera.x:F2} | Y: {cornerToCamera.y:F2} | Z: {cornerToCamera.z:F2}");
                 //record positional data
-                RecordData(true, mainCamera.transform.position.x.ToString());
-                RecordData(true, mainCamera.transform.position.y.ToString());
-                RecordData(true, mainCamera.transform.position.z.ToString());
+                RecordData(true, cornerToCamera.x.ToString());
+                RecordData(true, cornerToCamera.y.ToString());
+                RecordData(true, cornerToCamera.z.ToString());
                 //Get normalized vector from camera to capsule
-                faceToScreenSpace = Camera.main.WorldToScreenPoint(faceTransform.transform.position);
-                //Get vector camera is facing
-                centerLookWorldPos = mainCamera.transform.position + mainCamera.transform.forward;
-                camLookScreenSpace = Camera.main.WorldToScreenPoint(centerLookWorldPos);
-                //Find angle in between
-                capsuleCameraOffset = camLookScreenSpace - faceToScreenSpace;
+                Vector3 dirToFace = (faceTransform.position - mainCamera.transform.position).normalized;
+                Vector3 localDir = mainCamera.transform.InverseTransformDirection(dirToFace);
 
-                RecordData(true, capsuleCameraOffset.x.ToString());
-                RecordData(true, capsuleCameraOffset.y.ToString());
+                float pitch = Mathf.Asin(-localDir.y) * Mathf.Rad2Deg;
+                float yaw = Mathf.Atan2(localDir.x, localDir.z) * Mathf.Rad2Deg;
+                Vector3 cameraForward = mainCamera.transform.forward;
+                Vector3 worldUp = Vector3.up;
+                Vector3 horizontalRight = Vector3.Cross(worldUp, cameraForward).normalized;
+                float roll = Vector3.SignedAngle(horizontalRight, mainCamera.transform.right, cameraForward);
+                Debug.Log($"Yaw: {yaw:F2} | Pitch: {pitch:F2} | Roll: {roll:F2}");
+                RecordData(true, yaw.ToString()); // Pitch
+                RecordData(true, pitch.ToString()); // Yaw
+                RecordData(true, roll.ToString()); // Roll
 
                 float centerDeviation = float.MaxValue;
                 foreach (Collider collider in centerLineSegments)
@@ -222,7 +222,7 @@ namespace UnityEngine
             filePath = System.IO.Path.Combine(Application.persistentDataPath, System.DateTime.Now.ToString("HH-mm-ss") + ".csv");
             Debug.Log("Filepath is: " + filePath);
             outputString = "";
-            outputString += "Time,Distance,Corner,Flashing,Start/Stop,Position.x,Position.y,Position.z,Offset.x,Offset.y,Deviation\n";
+            outputString += "Time,Distance,Corner,Flashing,Start/Stop,Position.x,Position.y,Position.z,Pitch,Yaw,Roll,Deviation\n";
         }
         private void TogglePathMesh(InputAction.CallbackContext context)
         {
@@ -236,6 +236,12 @@ namespace UnityEngine
                 path.SetActive(true);
                 toggleState = !toggleState;
             }
+        }
+        float NormalizeAngle(float angle)
+        {
+            while (angle > 180) angle -= 360;
+            while (angle < -180) angle += 360;
+            return angle;
         }
 
         private void RecordData(bool conditional, string str)
