@@ -2,6 +2,7 @@ using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
+using System.Collections;
 
 public class NetworkController : MonoBehaviourPunCallbacks, IOnEventCallback
 {
@@ -15,8 +16,10 @@ public class NetworkController : MonoBehaviourPunCallbacks, IOnEventCallback
     private DisplayObjectManager.ScreenType currentScreen;
     private DisplayObjectManager.FOV currentFOV;
     private DisplayObjectManager.AspectRatio currentAspectRatio;
+    private string roomName = "parthandpriyankaarebullies";
     private bool isFlashing;
     private bool isMonocular;
+    private bool isReconnecting;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,15 +37,66 @@ public class NetworkController : MonoBehaviourPunCallbacks, IOnEventCallback
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.IsVisible = false;
         roomOptions.MaxPlayers = 4;
-        PhotonNetwork.JoinOrCreateRoom("parthandpriyankaarebullies", roomOptions, TypedLobby.Default);
+        roomOptions.PlayerTtl = 60000;     // 60 seconds to reconnect
+        roomOptions.EmptyRoomTtl = 60000;  // keep room alive
+        PhotonNetwork.JoinOrCreateRoom(roomName, roomOptions, TypedLobby.Default);
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void OnDisconnected(DisconnectCause cause)
     {
+        Debug.Log($"Disconnected: {cause}");
 
+        if (!isReconnecting) 
+        {
+            isReconnecting = true;
+            StartCoroutine(ReconnectRoutine());
+        }
     }
 
+    private IEnumerator ReconnectRoutine()
+    {
+        // Fast path
+        if (PhotonNetwork.ReconnectAndRejoin()) 
+        {
+            yield break;
+        }
+
+        PhotonNetwork.ConnectUsingSettings();
+
+        float timeout = 10f;
+        float timer = 0f;
+
+        while (!PhotonNetwork.IsConnectedAndReady && timer < timeout)
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        if (PhotonNetwork.IsConnectedAndReady)
+        {
+            PhotonNetwork.JoinOrCreateRoom(roomName, new RoomOptions(), TypedLobby.Default);
+        }
+
+        isReconnecting = false;
+    }
+
+    public override void OnJoinedRoom()
+    {
+        isReconnecting = false;
+        // Resyncs app state for lost data
+        ResyncState();
+    }
+
+    private void ResyncState()
+    {
+        DisplayObjectManager.showScreen(
+            currentScreen,
+            currentFOV,
+            currentAspectRatio,
+            isFlashing,
+            isMonocular
+        );
+    }
     public void OnEvent(EventData photonEvent)
     {
         byte eventCode = photonEvent.Code;

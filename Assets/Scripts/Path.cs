@@ -22,8 +22,6 @@ namespace UnityEngine
         public GameObject pathParent;
         public GameObject pathStart;
         public GameObject centerLineParent;
-        public GameObject leftLineParent;
-        public GameObject rightLineParent;
         public DisplayObjectManager DisplayObjectManager;
 
         private GameObject mainCamera;
@@ -48,8 +46,6 @@ namespace UnityEngine
         private static bool isMoving = true;
         private bool toggleState = true;
         private List<Collider> centerLineSegments = new List<Collider>();
-        private List<Collider> leftLineSegments = new List<Collider>();
-        private List<Collider> rightLineSegments = new List<Collider>();
 
 
         void Start()
@@ -85,22 +81,6 @@ namespace UnityEngine
                 if (col != null)
                 {
                     centerLineSegments.Add(col);
-                }
-            }
-            foreach (Transform segment in leftLineParent.transform)
-            {
-                Collider col = segment.GetComponent<Collider>();
-                if (col != null)
-                {
-                    leftLineSegments.Add(col);
-                }
-            }
-            foreach (Transform segment in rightLineParent.transform)
-            {
-                Collider col = segment.GetComponent<Collider>();
-                if (col != null)
-                {
-                    rightLineSegments.Add(col);
                 }
             }
         }
@@ -214,32 +194,7 @@ namespace UnityEngine
                     }
                 }
 
-                if (centerDeviation == float.MaxValue) centerDeviation = 0;
-
-                float leftDistance = float.MaxValue;
-                foreach (Collider collider in leftLineSegments)
-                {
-                    if (collider != null)
-                    {
-                        Vector3 closestPoint = collider.ClosestPoint(mainCamera.transform.position);
-                        leftDistance = Mathf.Min(leftDistance, Vector3.Distance(closestPoint, mainCamera.transform.position));
-                    }
-                }
-
-                float rightDistance = float.MaxValue;
-                foreach (Collider collider in rightLineSegments)
-                {
-                    if (collider != null)
-                    {
-                        Vector3 closestPoint = collider.ClosestPoint(mainCamera.transform.position);
-                        rightDistance = Mathf.Min(rightDistance, Vector3.Distance(closestPoint, mainCamera.transform.position));
-                    }
-                }
-
-                if (leftDistance < rightDistance)
-                {
-                    centerDeviation *= -1f;
-                }
+                if (centerDeviation == float.MaxValue) centerDeviation = -1f;
 
                 RecordData(true, centerDeviation.ToString());
 
